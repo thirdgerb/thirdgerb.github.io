@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on 烈风 | 纳于大麓 藏之名山</title>
+    <title>Posts on 烈风&#39;s Blog</title>
     <link>https://thirdgerb.github.io/posts/</link>
-    <description>Recent content in Posts on 烈风 | 纳于大麓 藏之名山</description>
+    <description>Recent content in Posts on 烈风&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>正式开始 Commune/Chatbot 项目的开发旅程</title>
+      <title>正式开始 Chatbot 项目的开发</title>
       <link>https://thirdgerb.github.io/posts/2019-03/start-commune-chatbot-developing/</link>
       <pubDate>Thu, 21 Mar 2019 17:31:01 +0800</pubDate>
       
