@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Laravel on 纳于大麓, 藏之名山</title>
+    <link>https://thirdgerb.github.io/tags/laravel/</link>
+    <description>Recent content in Laravel on 纳于大麓, 藏之名山</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 16 Aug 2016 21:42:29 +0800</lastBuildDate>
+    
+	<atom:link href="https://thirdgerb.github.io/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>解决了lumen的migrate报错的问题</title>
+      <link>https://thirdgerb.github.io/posts/old/fix-laravel-pdo-exception/</link>
+      <pubDate>Tue, 16 Aug 2016 21:42:29 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/old/fix-laravel-pdo-exception/</guid>
+      <description>用lumen, 运行artisan migrate 的时候, 出现了报错 SQLSTATE[HY000] [2002] No such file or directory . 单步追查源码也没有发现问题所在. 结果google搜索, 在stackoverflow 立刻找到了解决办法: Laravel 4: Change &amp;quot;host&amp;quot; in the app/config/database.php file from &amp;quot;localhost&amp;quot; to &amp;quot;127.0.0.1&amp;quot; Laravel 5: Change &amp;quot;DB_HOST&amp;quot; in the .env file from &amp;quot;localhost&amp;quot; to &amp;quot;127.0.0.1&amp;quot; 链接:http://stackoverflow.com/questions/20723803/pdoexception-sqlstatehy000-2002-no-such-file</description>
+    </item>
+    
+  </channel>
+</rss>

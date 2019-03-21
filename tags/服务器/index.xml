@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>服务器 on 纳于大麓, 藏之名山</title>
+    <link>https://thirdgerb.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+    <description>Recent content in 服务器 on 纳于大麓, 藏之名山</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 06 Apr 2017 22:58:59 +0800</lastBuildDate>
+    
+	<atom:link href="https://thirdgerb.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>搬迁服务器</title>
+      <link>https://thirdgerb.github.io/posts/old/%E6%90%AC%E8%BF%81%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Thu, 06 Apr 2017 22:58:59 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/old/%E6%90%AC%E8%BF%81%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>因为换了一个网络, 之前买的海外服务器ping变高了, 因此新买了一个海外机房的服务器. 要把原来服务器的功能搬迁走. 不过很久没有做linux的工作, 全都生疏了. 只好从头做一遍, 记下来防止下次忘记: 用户 创建用户: useradd 修改用户密码: passwd 查看用户分组: cat /etc/passwd 增加sudo权限: 修改 /etc/sudoers 添加sudo权限 ssh key 添加rsa 公钥私钥 ssh-keygen -t rsa -C &amp;ldquo;myname@email.com&amp;rdquo; 记得要修改文件权限 在远程服务器中添加authorized_keys 在/etc/host</description>
+    </item>
+    
+    <item>
+      <title>linux操作相关的命令随手记</title>
+      <link>https://thirdgerb.github.io/posts/old/some-linux-operation/</link>
+      <pubDate>Mon, 22 Aug 2016 09:53:31 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/old/some-linux-operation/</guid>
+      <description>今天要手动初始化一个centos的环境.把中间的操作都记录一下. 创建新用户流程 useradd 添加用户 passwd 修改用户密码 usermod 修改用户组 修改 /etc/sudoers 添加sudo权限 用户目录~/.ssh/, 添加authorized_keys 修改/etc/ssh/sshd_config , 允许用户登录 必须记得 修改 ~/.ssh 的权限为700 修改服务器名称 给服务器取个名字, 再修改下hosts 配置yum的源 cd /etc/yum.repos.d 推荐什么源好呢? 禁用账号 usermod -L &amp;lt;username&amp;gt; ## 忙起来完全没有时间记</description>
+    </item>
+    
+    <item>
+      <title>新服务器apache的设置</title>
+      <link>https://thirdgerb.github.io/posts/old/apache%E7%9A%84%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Thu, 21 Jul 2016 22:12:01 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/old/apache%E7%9A%84%E8%AE%BE%E7%BD%AE/</guid>
+      <description>把阿里云的服务器给退了, 换了conoha的服务器. 主要原因是阿里云不能科学上网, conoha的服务器看上去不错, 首先当然是能够用国外的节点, 然后流量没有约束, 价格还和阿里云差不太多. 换了服务器后环境又要重新搭. 不过昨天踩坑最严重的firewall-cmd开启端口的问题已经熟悉了. 今天重点学习配置xampp的apache 记录一下要点. 可能有各种错误 apache分配独有账号 useradd -g www -M -s /sbin/nologin httpd 创建web访问</description>
+    </item>
+    
+    <item>
+      <title>centOS环境安装记录</title>
+      <link>https://thirdgerb.github.io/posts/old/centos%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Wed, 20 Jul 2016 18:29:19 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/old/centos%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</guid>
+      <description>今天买了阿里云的服务器, 准备安装一套环境, 把过程记录一下 目标 打算安装这些: PHP7 Apache2.2 mysql or MariaDB redis memcached yaf swoole nginx mongoDB 一个一个来. 系统设置 修改.bashrc 忍不了没有颜色的命令行, 所以第一步是配置.bashrc, 顺便添加了几个常用alias 配置.bashrc 配置.bash_alias 配置.vimrc 添加用户 创建用户 给用户添加root分组,并设置到sudoers 中 给用户添加authorize key 考虑要不要禁止root的登录</description>
+    </item>
+    
+  </channel>
+</rss>

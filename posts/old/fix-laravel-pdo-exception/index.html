@@ -7,22 +7,23 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
   <meta name="author" content="烈风">
-  <meta name="description" content="[一名离职写开源项目的程序猿 吾有幽忧之疾, 而好无用之学 方且为学，未暇治疾也]">
+  <meta name="description" content="用lumen, 运行artisan migrate 的时候, 出现了报错 SQLSTATE[HY000] [2002] No such file or directory . 单步追查源码也没有发现问题所在. 结果google搜索, 在stackoverflow 立刻找到了解决办法: Laravel 4: Change &quot;host&quot; in the app/config/database.php file from &quot;localhost&quot; to &quot;127.0.0.1&quot; Laravel 5: Change &quot;DB_HOST&quot; in the .env file from &quot;localhost&quot; to &quot;127.0.0.1&quot; 链接:http://stackoverflow.com/questions/20723803/pdoexception-sqlstatehy000-2002-no-such-file">
   
-  <meta property="og:title" content="Categories" />
-<meta property="og:description" content="[一名离职写开源项目的程序猿 吾有幽忧之疾, 而好无用之学 方且为学，未暇治疾也]" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://thirdgerb.github.io/categories/" />
-
+  <meta property="og:title" content="解决了lumen的migrate报错的问题" />
+<meta property="og:description" content="用lumen, 运行artisan migrate 的时候, 出现了报错 SQLSTATE[HY000] [2002] No such file or directory . 单步追查源码也没有发现问题所在. 结果google搜索, 在stackoverflow 立刻找到了解决办法: Laravel 4: Change &quot;host&quot; in the app/config/database.php file from &quot;localhost&quot; to &quot;127.0.0.1&quot; Laravel 5: Change &quot;DB_HOST&quot; in the .env file from &quot;localhost&quot; to &quot;127.0.0.1&quot; 链接:http://stackoverflow.com/questions/20723803/pdoexception-sqlstatehy000-2002-no-such-file" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thirdgerb.github.io/posts/old/fix-laravel-pdo-exception/" />
+<meta property="article:published_time" content="2016-08-16T21:42:29&#43;08:00"/>
+<meta property="article:modified_time" content="2016-08-16T21:42:29&#43;08:00"/>
 
 
   <title>
   
-       Categories | 纳于大麓, 藏之名山 
+       解决了lumen的migrate报错的问题 | 纳于大麓, 藏之名山 
   
   </title>
 
-  <link rel="canonical" href="https://thirdgerb.github.io/categories/">
+  <link rel="canonical" href="https://thirdgerb.github.io/posts/old/fix-laravel-pdo-exception/">
 
   
   
@@ -50,8 +51,6 @@
 
 
   
-  
-  <link href="https://thirdgerb.github.io/categories/index.xml" rel="alternate" type="application/rss+xml" title="纳于大麓, 藏之名山" />
   
 
   <style type="text/css">
@@ -232,8 +231,6 @@
             
     
             
-                <a href="https://thirdgerb.github.io/categories/index.xml"><i class="fas fa-rss pr-1" aria-hidden="true"></i></a>
-            
 
             
         </div>
@@ -251,98 +248,153 @@
     
 
     
-  <main class="post-main-wrapper px-5">
+  
+  <main class="post-main-wrapper">
+    
     
     <div class="row">
+
       
-      <div class="col-md-3">
-        
-        
-        
 
-
-
-
-
+      
+      <div class="container pr-5">
+      
 
         
-        
+        <div class="z-depth-1  post-wrapper white-bg single-post">
 
+          <div class="post-header text-center" >
+  <ul class="post-meta li-x">
+    
+      
+        <li><a href="https://thirdgerb.github.io/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> 开发记录 </a></li>
+      
+    
+    
+  </ul>
 
+  <div class="px-4 post-heading">解决了lumen的migrate报错的问题</div>
 
+  <ul class="post-meta li-x mt-1">
+    
+      <li>Aug 16, 2016</li>
+    
 
-
-
-        
-
-
-
-
-
-
+    
+      <li class="middot"></li>
+      <li>One minute read</li>
+    
+  </ul>
   
 
-      </div>
-      
-
-      
-      
-      <div class="col-md-9 mt-3">  
-        <ul>
-          <div class='post-heading'>
-  
-      Categories
-  
 </div>
 
+
+          <div class="post-content markdown">
+            <p>用lumen, 运行<code>artisan migrate</code> 的时候, 出现了报错 <code>SQLSTATE[HY000] [2002] No such file or directory</code> .</p>
+
+<p>单步追查源码也没有发现问题所在. 结果google搜索, 在stackoverflow 立刻找到了解决办法:</p>
+
+<pre><code>Laravel 4: Change &quot;host&quot; in the app/config/database.php file from &quot;localhost&quot; to &quot;127.0.0.1&quot;
+Laravel 5: Change &quot;DB_HOST&quot; in the .env file from &quot;localhost&quot; to &quot;127.0.0.1&quot;
+</code></pre>
+
+<p>链接:<a href="http://stackoverflow.com/questions/20723803/pdoexception-sqlstatehy000-2002-no-such-file-or-directory">http://stackoverflow.com/questions/20723803/pdoexception-sqlstatehy000-2002-no-such-file-or-directory</a>. 第二层答案.</p>
+
+<p>答主调查后了解到, PDO如果使用<code>localhost</code>的设置, 会使用UNIX socket 去链接mysql. 但我的mysql替换成xampp的mariaDB后, .sock文件没有链到系统默认的位置. 所以就链接不上了. 如果填写<code>127.0.0.1</code>的话, PDO 走的是TCP, 所以就能读到了.</p>
+
+<p>感谢该答主.</p>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-md-8">
+            
+              <div class="mb-5">
+                
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="https://thirdgerb.github.io/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+      <li><a href="https://thirdgerb.github.io/tags/laravel" role="button">laravel </a></li>
+      
+    
+  </div>
+</div>
+              </div>
+            
+            </div>
+            
+          </div>
+          
+
+          
+          <div class="row pt-3">
+            <div class="col-md-6">
+              
+                <a href=https://thirdgerb.github.io/posts/old/apache%E7%9A%84%E8%AE%BE%E7%BD%AE/ class="post-meta">Previous
+                  <div class="pt-2 pb-5 d-flex">
+                    <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+                    <span>新服务器apache的设置</span>
+                  </div>
+                </a>
+              
+            </div>
+            
+            <div class="col-md-6 text-right" >
+              
+                <a href=https://thirdgerb.github.io/posts/old/some-linux-operation/ class="post-meta">Next
+                  <div class="pt-2 pb-5 flex-reverse">
+                    <i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+                    <span>linux操作相关的命令随手记</span>
+                  </div>
+                </a>
+              
+            </div>
+          </div>
+
+          
+
+        </div>
         
-            
-        </ul>
-        <ul>
-          
-          
 
-            <li class="post-item">
-              
-              <a href="%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95"><span>开发记录</span></a>
-              
-              
-            </li>
-            
-          
-
-            <li class="post-item">
-              
-              <a href="%E5%88%9B%E6%84%8F%E5%A4%87%E5%BF%98"><span>创意备忘</span></a>
-              
-              
-            </li>
-            
-          
-
-            <li class="post-item">
-              
-              <a href="%E5%B7%A5%E4%BD%9C%E9%9A%8F%E7%AC%94"><span>工作随笔</span></a>
-              
-              
-            </li>
-            
-          
-
-            <li class="post-item">
-              
-              <a href="%E8%A1%8C%E4%B8%9A%E6%80%9D%E8%80%83"><span>行业思考</span></a>
-              
-              
-            </li>
-            
-          
-        </ul>
       </div>
       
+
       
+
     </div>
+    
+
+    <div class="row">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "thirdgerb" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
   </main>
+  
+
+
+
 
     
     
@@ -372,8 +424,6 @@
         <a href="mailto:thirdgerb@gmail.com"><i class="far fa-envelope-open mr-3" aria-hidden="true"></i></a>
     
 
-    
-        <a href="https://thirdgerb.github.io/categories/index.xml"><i class="fas fa-rss mr-3" aria-hidden="true"></i></a>
     
 
     

@@ -1,52 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>纳于大麓, 藏之名山</title>
-    <link>https://thirdgerb.github.io/</link>
-    <description>Recent content on 纳于大麓, 藏之名山</description>
+    <title>开发记录 on 纳于大麓, 藏之名山</title>
+    <link>https://thirdgerb.github.io/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/</link>
+    <description>Recent content in 开发记录 on 纳于大麓, 藏之名山</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 21 Mar 2019 17:31:01 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 06 Apr 2017 22:58:59 +0800</lastBuildDate>
     
-	<atom:link href="https://thirdgerb.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://thirdgerb.github.io/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Start Commune Chatbot Developing</title>
-      <link>https://thirdgerb.github.io/posts/2019-03/start-commune-chatbot-developing/</link>
-      <pubDate>Thu, 21 Mar 2019 17:31:01 +0800</pubDate>
-      
-      <guid>https://thirdgerb.github.io/posts/2019-03/start-commune-chatbot-developing/</guid>
-      <description>2019年3月21日重启这个博客. 今天我正式从单位离职了, 顶着经济压力和各方的质疑, 从现在开始启动 Commune/Chatbot 项目的开发. 重新开启博客, 一方面是为了记录Commune/Chatbot 开发和设计的相关文章, 也是为了把一些技术方面的经验和想法努力沉淀下来, 不让它们随波而逝. 一个项目的成败也很重要, 不过对技术热情的坚持更加重要. 希望能用脚踏实地的努力来验证自己离职做项目的决心, 也希望这段经历能把自己的技术视野提升</description>
-    </item>
-    
-    <item>
-      <title>开启&#34;技术思考&#34;栏目</title>
-      <link>https://thirdgerb.github.io/posts/2019-03/init-tech-thoughts-category/</link>
-      <pubDate>Thu, 21 Mar 2019 17:23:38 +0800</pubDate>
-      
-      <guid>https://thirdgerb.github.io/posts/2019-03/init-tech-thoughts-category/</guid>
-      <description>开启&amp;rdquo;技术思考&amp;rdquo;栏目. 以后在这个栏目里放技术方面的思考, 主要是Commune 系列项目的设计理念.</description>
-    </item>
-    
-    <item>
-      <title>开启&#39;行业思考&#39;栏目</title>
-      <link>https://thirdgerb.github.io/posts/2019-03/internet-bussiness-thoughts/</link>
-      <pubDate>Thu, 21 Mar 2019 17:17:32 +0800</pubDate>
-      
-      <guid>https://thirdgerb.github.io/posts/2019-03/internet-bussiness-thoughts/</guid>
-      <description>开启&amp;rdquo;互联网思考&amp;rdquo;栏目. 未来在这里记录一些对互联网行业的观察和思考.</description>
-    </item>
-    
-    <item>
-      <title>markdown文档多平台发布工具设想</title>
-      <link>https://thirdgerb.github.io/posts/2019-03/idea-md-multi-platform-poster/</link>
-      <pubDate>Thu, 21 Mar 2019 17:04:43 +0800</pubDate>
-      
-      <guid>https://thirdgerb.github.io/posts/2019-03/idea-md-multi-platform-poster/</guid>
-      <description>今天重新启用了个人博客. 在Commune/Chatbot 的开发期间, 我打算一直写一些技术文档, 沉淀自己开发时的想法. 然后把这些文档发布出去, 一方面尝试做一些技术输出, 另一方面也经营一下自己作为程序员的形象, 为未来职业发展做一些准备. 目前考虑发布文章的渠道有: 个人博客 微信公众号 开发者头条 gitbooks 其实各个渠道发布的文章肯定大多数是重叠的. 手动一个个发布, 想必相当耗时. 作为程序员, 就应该用工具节省这一笔时间.</description>
-    </item>
     
     <item>
       <title>搬迁服务器</title>

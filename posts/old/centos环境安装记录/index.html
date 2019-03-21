@@ -7,22 +7,23 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
   <meta name="author" content="烈风">
-  <meta name="description" content="[一名离职写开源项目的程序猿 吾有幽忧之疾, 而好无用之学 方且为学，未暇治疾也]">
+  <meta name="description" content="今天买了阿里云的服务器, 准备安装一套环境, 把过程记录一下 目标 打算安装这些: PHP7 Apache2.2 mysql or MariaDB redis memcached yaf swoole nginx mongoDB 一个一个来. 系统设置 修改.bashrc 忍不了没有颜色的命令行, 所以第一步是配置.bashrc, 顺便添加了几个常用alias 配置.bashrc 配置.bash_alias 配置.vimrc 添加用户 创建用户 给用户添加root分组,并设置到sudoers 中 给用户添加authorize key 考虑要不要禁止root的登录">
   
-  <meta property="og:title" content="Categories" />
-<meta property="og:description" content="[一名离职写开源项目的程序猿 吾有幽忧之疾, 而好无用之学 方且为学，未暇治疾也]" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://thirdgerb.github.io/categories/" />
-
+  <meta property="og:title" content="centOS环境安装记录" />
+<meta property="og:description" content="今天买了阿里云的服务器, 准备安装一套环境, 把过程记录一下 目标 打算安装这些: PHP7 Apache2.2 mysql or MariaDB redis memcached yaf swoole nginx mongoDB 一个一个来. 系统设置 修改.bashrc 忍不了没有颜色的命令行, 所以第一步是配置.bashrc, 顺便添加了几个常用alias 配置.bashrc 配置.bash_alias 配置.vimrc 添加用户 创建用户 给用户添加root分组,并设置到sudoers 中 给用户添加authorize key 考虑要不要禁止root的登录" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thirdgerb.github.io/posts/old/centos%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/" />
+<meta property="article:published_time" content="2016-07-20T18:29:19&#43;08:00"/>
+<meta property="article:modified_time" content="2016-07-20T18:29:19&#43;08:00"/>
 
 
   <title>
   
-       Categories | 纳于大麓, 藏之名山 
+       centOS环境安装记录 | 纳于大麓, 藏之名山 
   
   </title>
 
-  <link rel="canonical" href="https://thirdgerb.github.io/categories/">
+  <link rel="canonical" href="https://thirdgerb.github.io/posts/old/centos%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/">
 
   
   
@@ -50,8 +51,6 @@
 
 
   
-  
-  <link href="https://thirdgerb.github.io/categories/index.xml" rel="alternate" type="application/rss+xml" title="纳于大麓, 藏之名山" />
   
 
   <style type="text/css">
@@ -232,8 +231,6 @@
             
     
             
-                <a href="https://thirdgerb.github.io/categories/index.xml"><i class="fas fa-rss pr-1" aria-hidden="true"></i></a>
-            
 
             
         </div>
@@ -251,98 +248,243 @@
     
 
     
-  <main class="post-main-wrapper px-5">
+  
+  <main class="post-main-wrapper">
+    
     
     <div class="row">
+
       
-      <div class="col-md-3">
-        
-        
-        
 
-
-
-
-
+      
+      <div class="container pr-5">
+      
 
         
-        
+        <div class="z-depth-1  post-wrapper white-bg single-post">
 
+          <div class="post-header text-center" >
+  <ul class="post-meta li-x">
+    
+      
+        <li><a href="https://thirdgerb.github.io/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> 开发记录 </a></li>
+      
+    
+    
+  </ul>
 
+  <div class="px-4 post-heading">centOS环境安装记录</div>
 
+  <ul class="post-meta li-x mt-1">
+    
+      <li>Jul 20, 2016</li>
+    
 
-
-
-        
-
-
-
-
-
-
+    
+      <li class="middot"></li>
+      <li>2 minutes read</li>
+    
+  </ul>
   
 
-      </div>
-      
-
-      
-      
-      <div class="col-md-9 mt-3">  
-        <ul>
-          <div class='post-heading'>
-  
-      Categories
-  
 </div>
 
+
+          <div class="post-content markdown">
+            
+
+<blockquote>
+<p>今天买了阿里云的服务器, 准备安装一套环境, 把过程记录一下</p>
+</blockquote>
+
+<h2 id="目标">目标</h2>
+
+<p>打算安装这些:</p>
+
+<ul>
+<li>PHP7</li>
+<li>Apache2.2</li>
+<li>mysql or MariaDB</li>
+<li>redis</li>
+<li>memcached</li>
+<li>yaf</li>
+<li>swoole</li>
+<li>nginx</li>
+<li>mongoDB</li>
+</ul>
+
+<p>一个一个来.</p>
+
+<h2 id="系统设置">系统设置</h2>
+
+<h3 id="修改-bashrc">修改.bashrc</h3>
+
+<p>忍不了没有颜色的命令行, 所以第一步是配置.bashrc, 顺便添加了几个常用alias</p>
+
+<ul>
+<li>配置.bashrc</li>
+<li>配置.bash_alias</li>
+<li>配置.vimrc</li>
+</ul>
+
+<h3 id="添加用户">添加用户</h3>
+
+<ol>
+<li>创建用户</li>
+<li>给用户添加root分组,并设置到sudoers 中</li>
+<li>给用户添加authorize key</li>
+<li>考虑要不要禁止root的登录;还是留着吧</li>
+</ol>
+
+<h3 id="遇到问题">遇到问题</h3>
+
+<ul>
+<li>遇到<code>break pipe</code>是因为闲置断开. 在服务端或客户端设置轮询可破</li>
+</ul>
+
+<h2 id="系统环境">系统环境</h2>
+
+<p>可以直接用yum安装:</p>
+
+<ul>
+<li>gcc</li>
+<li>gcc-c++</li>
+<li>libevent</li>
+<li>autoconf</li>
+<li>lsof</li>
+</ul>
+
+<p>都是用阿里云自己的镜像, 安装速度非常快</p>
+
+<h2 id="安装xampp">安装xampp</h2>
+
+<p>xampp 比较方便, 直接选择安装它了.</p>
+
+<ul>
+<li>从xampp官网下载.run文件</li>
+<li>scp到服务器的/opt/目录</li>
+<li>直接运行run</li>
+<li>把xampp和/opt/lampp/bin 下的命令变成可直接使用</li>
+</ul>
+
+<h2 id="安装php常用扩展">安装php常用扩展</h2>
+
+<ul>
+<li>memcache</li>
+<li>swoole</li>
+<li>yaf</li>
+</ul>
+
+<p>都没装上, php7要单独操作</p>
+
+<h2 id="设置apache">设置apache</h2>
+
+<ul>
+<li>创建vhosts, 建立.conf文件</li>
+<li>取消默认监听80端口</li>
+<li>添加www用户和www用户组</li>
+<li>修改httpd的默认用户为www,www</li>
+</ul>
+
+<h3 id="遇到问题-1">遇到问题</h3>
+
+<ul>
+<li>no listen socket available</li>
+<li>httpd.conf 默认没有引入vhosts</li>
+<li>linux 要开启对外的端口?? 原来是centos 7 的防火墙关闭了. 坑死人了</li>
+<li>apache 的vhosts配置, 折腾了几个小时, 不知道为什么好了</li>
+</ul>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-md-8">
+            
+              <div class="mb-5">
+                
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="https://thirdgerb.github.io/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+      <li><a href="https://thirdgerb.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8" role="button">服务器 </a></li>
+      
+    
+  </div>
+</div>
+              </div>
+            
+            </div>
+            
+          </div>
+          
+
+          
+          <div class="row pt-3">
+            <div class="col-md-6">
+              
+                <a href=https://thirdgerb.github.io/posts/old/install_hugo/ class="post-meta">Previous
+                  <div class="pt-2 pb-5 d-flex">
+                    <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+                    <span>install_hugo</span>
+                  </div>
+                </a>
+              
+            </div>
+            
+            <div class="col-md-6 text-right" >
+              
+                <a href=https://thirdgerb.github.io/posts/old/apache%E7%9A%84%E8%AE%BE%E7%BD%AE/ class="post-meta">Next
+                  <div class="pt-2 pb-5 flex-reverse">
+                    <i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+                    <span>新服务器apache的设置</span>
+                  </div>
+                </a>
+              
+            </div>
+          </div>
+
+          
+
+        </div>
         
-            
-        </ul>
-        <ul>
-          
-          
 
-            <li class="post-item">
-              
-              <a href="%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95"><span>开发记录</span></a>
-              
-              
-            </li>
-            
-          
-
-            <li class="post-item">
-              
-              <a href="%E5%88%9B%E6%84%8F%E5%A4%87%E5%BF%98"><span>创意备忘</span></a>
-              
-              
-            </li>
-            
-          
-
-            <li class="post-item">
-              
-              <a href="%E5%B7%A5%E4%BD%9C%E9%9A%8F%E7%AC%94"><span>工作随笔</span></a>
-              
-              
-            </li>
-            
-          
-
-            <li class="post-item">
-              
-              <a href="%E8%A1%8C%E4%B8%9A%E6%80%9D%E8%80%83"><span>行业思考</span></a>
-              
-              
-            </li>
-            
-          
-        </ul>
       </div>
       
+
       
+
     </div>
+    
+
+    <div class="row">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "thirdgerb" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
   </main>
+  
+
+
+
 
     
     
@@ -372,8 +514,6 @@
         <a href="mailto:thirdgerb@gmail.com"><i class="far fa-envelope-open mr-3" aria-hidden="true"></i></a>
     
 
-    
-        <a href="https://thirdgerb.github.io/categories/index.xml"><i class="fas fa-rss mr-3" aria-hidden="true"></i></a>
     
 
     

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>创意备忘 on 纳于大麓, 藏之名山</title>
+    <link>https://thirdgerb.github.io/categories/%E5%88%9B%E6%84%8F%E5%A4%87%E5%BF%98/</link>
+    <description>Recent content in 创意备忘 on 纳于大麓, 藏之名山</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 21 Mar 2019 17:04:43 +0800</lastBuildDate>
+    
+	<atom:link href="https://thirdgerb.github.io/categories/%E5%88%9B%E6%84%8F%E5%A4%87%E5%BF%98/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>markdown文档多平台发布工具设想</title>
+      <link>https://thirdgerb.github.io/posts/2019-03/idea-md-multi-platform-poster/</link>
+      <pubDate>Thu, 21 Mar 2019 17:04:43 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2019-03/idea-md-multi-platform-poster/</guid>
+      <description>今天重新启用了个人博客. 在Commune/Chatbot 的开发期间, 我打算一直写一些技术文档, 沉淀自己开发时的想法. 然后把这些文档发布出去, 一方面尝试做一些技术输出, 另一方面也经营一下自己作为程序员的形象, 为未来职业发展做一些准备. 目前考虑发布文章的渠道有: 个人博客 微信公众号 开发者头条 gitbooks 其实各个渠道发布的文章肯定大多数是重叠的. 手动一个个发布, 想必相当耗时. 作为程序员, 就应该用工具节省这一笔时间.</description>
+    </item>
+    
+  </channel>
+</rss>

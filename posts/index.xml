@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>纳于大麓, 藏之名山</title>
-    <link>https://thirdgerb.github.io/</link>
-    <description>Recent content on 纳于大麓, 藏之名山</description>
+    <title>Posts on 纳于大麓, 藏之名山</title>
+    <link>https://thirdgerb.github.io/posts/</link>
+    <description>Recent content in Posts on 纳于大麓, 藏之名山</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Thu, 21 Mar 2019 17:31:01 +0800</lastBuildDate>
     
-	<atom:link href="https://thirdgerb.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://thirdgerb.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

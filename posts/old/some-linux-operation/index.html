@@ -7,22 +7,23 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
   <meta name="author" content="烈风">
-  <meta name="description" content="[一名离职写开源项目的程序猿 吾有幽忧之疾, 而好无用之学 方且为学，未暇治疾也]">
+  <meta name="description" content="今天要手动初始化一个centos的环境.把中间的操作都记录一下.">
   
-  <meta property="og:title" content="Categories" />
-<meta property="og:description" content="[一名离职写开源项目的程序猿 吾有幽忧之疾, 而好无用之学 方且为学，未暇治疾也]" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://thirdgerb.github.io/categories/" />
-
+  <meta property="og:title" content="linux操作相关的命令随手记" />
+<meta property="og:description" content="今天要手动初始化一个centos的环境.把中间的操作都记录一下." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thirdgerb.github.io/posts/old/some-linux-operation/" />
+<meta property="article:published_time" content="2016-08-22T09:53:31&#43;08:00"/>
+<meta property="article:modified_time" content="2016-08-22T09:53:31&#43;08:00"/>
 
 
   <title>
   
-       Categories | 纳于大麓, 藏之名山 
+       linux操作相关的命令随手记 | 纳于大麓, 藏之名山 
   
   </title>
 
-  <link rel="canonical" href="https://thirdgerb.github.io/categories/">
+  <link rel="canonical" href="https://thirdgerb.github.io/posts/old/some-linux-operation/">
 
   
   
@@ -50,8 +51,6 @@
 
 
   
-  
-  <link href="https://thirdgerb.github.io/categories/index.xml" rel="alternate" type="application/rss+xml" title="纳于大麓, 藏之名山" />
   
 
   <style type="text/css">
@@ -232,8 +231,6 @@
             
     
             
-                <a href="https://thirdgerb.github.io/categories/index.xml"><i class="fas fa-rss pr-1" aria-hidden="true"></i></a>
-            
 
             
         </div>
@@ -251,98 +248,175 @@
     
 
     
-  <main class="post-main-wrapper px-5">
+  
+  <main class="post-main-wrapper">
+    
     
     <div class="row">
+
       
-      <div class="col-md-3">
-        
-        
-        
 
-
-
-
-
+      
+      <div class="container pr-5">
+      
 
         
-        
+        <div class="z-depth-1  post-wrapper white-bg single-post">
 
+          <div class="post-header text-center" >
+  <ul class="post-meta li-x">
+    
+      
+        <li><a href="https://thirdgerb.github.io/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> 开发记录 </a></li>
+      
+    
+    
+  </ul>
 
+  <div class="px-4 post-heading">linux操作相关的命令随手记</div>
 
+  <ul class="post-meta li-x mt-1">
+    
+      <li>Aug 22, 2016</li>
+    
 
-
-
-        
-
-
-
-
-
-
+    
+      <li class="middot"></li>
+      <li>One minute read</li>
+    
+  </ul>
   
 
-      </div>
-      
-
-      
-      
-      <div class="col-md-9 mt-3">  
-        <ul>
-          <div class='post-heading'>
-  
-      Categories
-  
 </div>
 
+
+          <div class="post-content markdown">
+            
+
+<p>今天要手动初始化一个centos的环境.把中间的操作都记录一下.</p>
+
+<h2 id="创建新用户流程">创建新用户流程</h2>
+
+<ol>
+<li>useradd 添加用户</li>
+<li>passwd 修改用户密码</li>
+<li>usermod  修改用户组</li>
+<li>修改 /etc/sudoers 添加sudo权限</li>
+<li>用户目录~/.ssh/, 添加authorized_keys</li>
+<li>修改/etc/ssh/sshd_config , 允许用户登录</li>
+<li>必须记得 修改 ~/.ssh 的权限为700</li>
+</ol>
+
+<h2 id="修改服务器名称">修改服务器名称</h2>
+
+<p>给服务器取个名字, 再修改下hosts</p>
+
+<h2 id="配置yum的源">配置yum的源</h2>
+
+<pre><code>cd /etc/yum.repos.d
+</code></pre>
+
+<p>推荐什么源好呢?</p>
+
+<h3 id="禁用账号">禁用账号</h3>
+
+<pre><code>usermod -L &lt;username&gt;
+</code></pre>
+
+<p>##</p>
+
+<p>忙起来完全没有时间记录, 先不记了</p>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-md-8">
+            
+              <div class="mb-5">
+                
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="https://thirdgerb.github.io/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+      <li><a href="https://thirdgerb.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8" role="button">服务器 </a></li>
+      
+    
+  </div>
+</div>
+              </div>
+            
+            </div>
+            
+          </div>
+          
+
+          
+          <div class="row pt-3">
+            <div class="col-md-6">
+              
+                <a href=https://thirdgerb.github.io/posts/old/fix-laravel-pdo-exception/ class="post-meta">Previous
+                  <div class="pt-2 pb-5 d-flex">
+                    <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+                    <span>解决了lumen的migrate报错的问题</span>
+                  </div>
+                </a>
+              
+            </div>
+            
+            <div class="col-md-6 text-right" >
+              
+                <a href=https://thirdgerb.github.io/posts/old/%E6%90%AC%E8%BF%81%E6%9C%8D%E5%8A%A1%E5%99%A8/ class="post-meta">Next
+                  <div class="pt-2 pb-5 flex-reverse">
+                    <i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+                    <span>搬迁服务器</span>
+                  </div>
+                </a>
+              
+            </div>
+          </div>
+
+          
+
+        </div>
         
-            
-        </ul>
-        <ul>
-          
-          
 
-            <li class="post-item">
-              
-              <a href="%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95"><span>开发记录</span></a>
-              
-              
-            </li>
-            
-          
-
-            <li class="post-item">
-              
-              <a href="%E5%88%9B%E6%84%8F%E5%A4%87%E5%BF%98"><span>创意备忘</span></a>
-              
-              
-            </li>
-            
-          
-
-            <li class="post-item">
-              
-              <a href="%E5%B7%A5%E4%BD%9C%E9%9A%8F%E7%AC%94"><span>工作随笔</span></a>
-              
-              
-            </li>
-            
-          
-
-            <li class="post-item">
-              
-              <a href="%E8%A1%8C%E4%B8%9A%E6%80%9D%E8%80%83"><span>行业思考</span></a>
-              
-              
-            </li>
-            
-          
-        </ul>
       </div>
       
+
       
+
     </div>
+    
+
+    <div class="row">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "thirdgerb" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
   </main>
+  
+
+
+
 
     
     
@@ -372,8 +446,6 @@
         <a href="mailto:thirdgerb@gmail.com"><i class="far fa-envelope-open mr-3" aria-hidden="true"></i></a>
     
 
-    
-        <a href="https://thirdgerb.github.io/categories/index.xml"><i class="fas fa-rss mr-3" aria-hidden="true"></i></a>
     
 
     

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>行业思考 on 纳于大麓, 藏之名山</title>
+    <link>https://thirdgerb.github.io/categories/%E8%A1%8C%E4%B8%9A%E6%80%9D%E8%80%83/</link>
+    <description>Recent content in 行业思考 on 纳于大麓, 藏之名山</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 21 Mar 2019 17:17:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://thirdgerb.github.io/categories/%E8%A1%8C%E4%B8%9A%E6%80%9D%E8%80%83/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>开启&#39;行业思考&#39;栏目</title>
+      <link>https://thirdgerb.github.io/posts/2019-03/internet-bussiness-thoughts/</link>
+      <pubDate>Thu, 21 Mar 2019 17:17:32 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2019-03/internet-bussiness-thoughts/</guid>
+      <description>开启&amp;rdquo;互联网思考&amp;rdquo;栏目. 未来在这里记录一些对互联网行业的观察和思考.</description>
+    </item>
+    
+  </channel>
+</rss>
