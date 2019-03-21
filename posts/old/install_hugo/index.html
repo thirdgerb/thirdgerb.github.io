@@ -7,6 +7,7 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
   <meta name="author" content="烈风">
+
   <meta name="description" content="今天打算正式使用github的pages做博客. 安装了hugo试一试. 安装步骤 1.直接用homebrew 安装, 最快捷 brew install hugo 2.用hugo创建一个站点的文件 hugo new site myblog 3.在hugo的[http://themes.gohugo.io/]() 挑选了一个主题. 我选的是blackburn, 感谢作者! 4.安装主题 cd themes git clone https://github.com/yoshiharuyamashita/blackburn.git 5.修改配置, config.toml 文件 6.创建第一个文件 hugo new post/filename.md 7.生成页面! 用hugo serve 调试 hugo hugo serve 因为事情比">
   
   <meta property="og:title" content="install_hugo" />
@@ -19,7 +20,7 @@
 
   <title>
   
-       install_hugo | 纳于大麓, 藏之名山 
+       install_hugo | 烈风 | 纳于大麓 藏之名山 
   
   </title>
 
@@ -90,7 +91,7 @@
           
         <img class="avatar" src="https://thirdgerb.github.io/" style="width: 40px!important;height: auto;"  class="d-inline-block align-top" alt="" >
         
-        <strong> 烈风&#39;s Blog</strong>
+        <strong> Thirdgerb</strong>
       </a>
 
       
@@ -203,7 +204,7 @@
       <div class="col-12 col-sm-7 text-left pl-2">
         <a href="https://thirdgerb.github.io/">
           <h1 class="mb-2 h1" style="font-weight: 300;" >
-            <strong>纳于大麓, 藏之名山</strong>
+            <strong>烈风 | 纳于大麓 藏之名山</strong>
           </h1>
         </a>
         
@@ -377,7 +378,8 @@ hugo serve
     
 
     <div class="row">
-    <div id="disqus_thread"></div>
+      <div class="col-md-12">
+        <div id="disqus_thread"></div>
 <script type="application/javascript">
     var disqus_config = function () {
     
@@ -390,13 +392,14 @@ hugo serve
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "thirdgerb" + '.disqus.com/embed.js';
+        s.src = '//' + "Commune" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
     </div>
 
   </main>

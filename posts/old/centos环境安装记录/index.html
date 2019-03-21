@@ -7,6 +7,7 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
   <meta name="author" content="烈风">
+
   <meta name="description" content="今天买了阿里云的服务器, 准备安装一套环境, 把过程记录一下 目标 打算安装这些: PHP7 Apache2.2 mysql or MariaDB redis memcached yaf swoole nginx mongoDB 一个一个来. 系统设置 修改.bashrc 忍不了没有颜色的命令行, 所以第一步是配置.bashrc, 顺便添加了几个常用alias 配置.bashrc 配置.bash_alias 配置.vimrc 添加用户 创建用户 给用户添加root分组,并设置到sudoers 中 给用户添加authorize key 考虑要不要禁止root的登录">
   
   <meta property="og:title" content="centOS环境安装记录" />
@@ -19,7 +20,7 @@
 
   <title>
   
-       centOS环境安装记录 | 纳于大麓, 藏之名山 
+       centOS环境安装记录 | 烈风 | 纳于大麓 藏之名山 
   
   </title>
 
@@ -90,7 +91,7 @@
           
         <img class="avatar" src="https://thirdgerb.github.io/" style="width: 40px!important;height: auto;"  class="d-inline-block align-top" alt="" >
         
-        <strong> 烈风&#39;s Blog</strong>
+        <strong> Thirdgerb</strong>
       </a>
 
       
@@ -203,7 +204,7 @@
       <div class="col-12 col-sm-7 text-left pl-2">
         <a href="https://thirdgerb.github.io/">
           <h1 class="mb-2 h1" style="font-weight: 300;" >
-            <strong>纳于大麓, 藏之名山</strong>
+            <strong>烈风 | 纳于大麓 藏之名山</strong>
           </h1>
         </a>
         
@@ -458,7 +459,8 @@
     
 
     <div class="row">
-    <div id="disqus_thread"></div>
+      <div class="col-md-12">
+        <div id="disqus_thread"></div>
 <script type="application/javascript">
     var disqus_config = function () {
     
@@ -471,13 +473,14 @@
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "thirdgerb" + '.disqus.com/embed.js';
+        s.src = '//' + "Commune" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
     </div>
 
   </main>
