@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
+  <meta name="author" content="烈风">
+  <meta name="description" content="commune/chatbot 的第一个demo 终于发布了!. 本项目是一个基于 php 开发的多轮对话机器人框架, 作者是 thirdgerb@gmail.com 它能用工程结合配置的方式, 开发各种能完成复杂多轮对话机器人, 可用于即时通讯软件和语音平台. demo 地址: 请使用微信扫描二维码, 进入微信公众号可以测试: (强烈推荐用桌面版微信测试) 或者在微信内搜索公众号: CommuneChatbot 什么是对话机器人 对话机器人, 指用户可以通过文字或语音对话理解用户的意图, 执行各种任务并将信息反馈给用户的机器人. 常见的">
+  
+  <meta property="og:title" content="多轮对话机器人框架 commune/chatbot demo发布" />
+<meta property="og:description" content="commune/chatbot 的第一个demo 终于发布了!. 本项目是一个基于 php 开发的多轮对话机器人框架, 作者是 thirdgerb@gmail.com 它能用工程结合配置的方式, 开发各种能完成复杂多轮对话机器人, 可用于即时通讯软件和语音平台. demo 地址: 请使用微信扫描二维码, 进入微信公众号可以测试: (强烈推荐用桌面版微信测试) 或者在微信内搜索公众号: CommuneChatbot 什么是对话机器人 对话机器人, 指用户可以通过文字或语音对话理解用户的意图, 执行各种任务并将信息反馈给用户的机器人. 常见的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thirdgerb.github.io/posts/2019-07/commune-chatbot-demo-release/" />
+<meta property="article:published_time" content="2019-07-18T13:33:23&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-18T13:33:23&#43;08:00"/><meta property="og:see_also" content="https://thirdgerb.github.io/posts/2019-03/start-commune-chatbot-developing/" />
+
+
+
+  <title>
+  
+       多轮对话机器人框架 commune/chatbot demo发布 | 烈风&#39;s Blog 
+  
+  </title>
+
+  <link rel="canonical" href="https://thirdgerb.github.io/posts/2019-07/commune-chatbot-demo-release/">
+
+  
+  
+
+  
+  <link href="https://thirdgerb.github.io/css/vendors-extensions/fontawesome/all.min.css" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600">
+  <link href="https://thirdgerb.github.io/css/font.css" rel="stylesheet"> 
+    
+  
+  <link href="https://thirdgerb.github.io/css/vendors/bootstrap4/bootstrap.min.css" rel="stylesheet">
+  <link href="https://thirdgerb.github.io/css/vendors-extensions/mdb/mdb.min.css" rel="stylesheet"> 
+  <link href="https://thirdgerb.github.io/css/vendors/mdb/style.min.css" rel="stylesheet"> 
+  <link href="https://thirdgerb.github.io/css/main.css" rel="stylesheet">
+
+
+  
+  <link rel="shortcut icon"
+  
+      href="https://thirdgerb.github.io/avatar.jpg"
+  
+  >
+
+
+  
+  
+
+  <style type="text/css">
+      @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1C2331!important;
+              }
+          }
+  </style>
+
+
+  
+  
+  
+
+  
+    
+    <link rel="stylesheet" href="https://thirdgerb.github.io/css/vendors/highlight/github-gist.css">
+  
+
+</head>
+
+  <body class="bg-light" data-spy="scroll" data-target="#page-scrollspy" data-offset="90">
+  
+    
+    
+
+    
+      
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      
+      
+      <a class="navbar-brand" href="https://thirdgerb.github.io/">
+          
+        <strong> Commune</strong>
+      </a>
+      
+
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item ">
+            <a class="nav-link" href="https://thirdgerb.github.io/">Home</a>
+          </li>
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://thirdgerb.github.io/posts/" >Posts  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://thirdgerb.github.io/about/" >About  </a>
+            </li>
+          
+          
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  
+ 
+      
+ 
+
+
+
+
+
+
+<div id="site-header" class="carousel slide carousel-fade" data-ride="carousel" style="height: 18rem;" >  
+
+  
+  
+  
+
+  
+  <div class="carousel-inner" role="listbox">
+    
+      
+
+        
+        <div class="carousel-item active">
+          <div class="view" style="background-image: url('https://thirdgerb.github.io/img/header-slides/raw_1515691746.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+              
+              
+              
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+      
+
+        
+        <div class="carousel-item">
+          <div class="view" style="background-image: url('https://thirdgerb.github.io/img/header-slides//raw_1515847341.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+
+  
+  </div>
+  
+
+  
+  <div class="carousel-content text-center white-text wow fadeIn">
+    <div class="row mx-0 headfont mt-3 pt-4">
+      
+      <div class="col-12 col-sm-5 align-middle">
+        <a href="https://thirdgerb.github.io/">
+          
+            <img class="pull-right avatar avatar-md" src="https://thirdgerb.github.io/avatar.jpg" alt="" >
+          
+        </a>
+      </div>
+      
+      <div class="col-12 col-sm-7 text-left pl-2">
+        <a href="https://thirdgerb.github.io/">
+          <h1 class="mb-2 h1" style="font-weight: 300;" >
+            <strong>烈风&#39;s Blog</strong>
+          </h1>
+        </a>
+        
+
+             
+        <div class="mt-2" style="font-size: 1rem; color: white;">
+            
+              <a href="https://github.com/thirdgerb" target="_blank" rel="noopener"><i class="fab fa-github pr-1" aria-hidden="true"></i></a>    
+            
+            
+
+            
+
+            
+
+            
+
+            
+    
+            
+    
+        
+            
+                <a href="mailto:thirdgerb@gmail.com"><i class="far fa-envelope-open pr-1" aria-hidden="true"></i></a>
+            
+    
+            
+
+            
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  
+
+</div>
+  
+    
+
+    
+  
+  <main class="container">
+    
+    
+    <div class="row">
+
+      
+
+      
+      <div class="col-md-10">
+      
+
+        
+        <div class="z-depth-1  post-wrapper white-bg single-post">
+
+          <div class="post-header text-center" >
+  <ul class="post-meta li-x">
+    
+      
+        <li><a href="https://thirdgerb.github.io/categories/%E5%B7%A5%E4%BD%9C%E9%9A%8F%E7%AC%94"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> 工作随笔 </a></li>
+      
+    
+    
+      
+        <li><a href="https://thirdgerb.github.io/series/commune%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>commune开发笔记</a></li>
+      
+    
+  </ul>
+
+  <div class="px-4 post-heading">多轮对话机器人框架 commune/chatbot demo发布</div>
+
+  <ul class="post-meta li-x mt-1">
+    
+      <li>Jul 18, 2019</li>
+    
+
+    
+      <li class="middot"></li>
+      <li>4 minutes read</li>
+    
+  </ul>
+  
+    <div class="view">
+      <img src="https://thirdgerb.github.io/img/commune-chatbot-test1.png" />
+    </div>
+  
+
+</div>
+
+
+          <div class="post-content markdown">
+            
+
+<p>commune/chatbot 的第一个demo 终于发布了!. 本项目是一个基于 php 开发的多轮对话机器人框架, 作者是 thirdgerb@gmail.com</p>
+
+<p>它能用工程结合配置的方式, 开发各种能完成复杂多轮对话机器人, 可用于即时通讯软件和语音平台.</p>
+
+<p><img src="/img/commune-chatbot-test1.png" alt="test1" /></p>
+
+<p><img src="/img/commune-chatbot-test2.png" alt="test2" /></p>
+
+<h2 id="demo-地址">demo 地址:</h2>
+
+<p>请使用微信扫描二维码, 进入微信公众号可以测试:</p>
+
+<p><img src="/img/commune-qrcode.bmp" alt="qrcode" /></p>
+
+<p>(强烈推荐用桌面版微信测试)</p>
+
+<p>或者在微信内搜索公众号: CommuneChatbot</p>
+
+<h2 id="什么是对话机器人">什么是对话机器人</h2>
+
+<p>对话机器人, 指用户可以通过文字或语音对话理解用户的意图, 执行各种任务并将信息反馈给用户的机器人.</p>
+
+<p>常见的应用有:</p>
+
+<ul>
+<li>智能客服</li>
+<li>智能音箱</li>
+<li>智能无限耳机</li>
+<li>声控智能家居</li>
+<li>语音电话机器人</li>
+<li>问答机器人</li>
+<li>对话知识库</li>
+<li>闲聊机器人</li>
+<li>等等</li>
+</ul>
+
+<h2 id="对话机器人的构成">对话机器人的构成</h2>
+
+<p>我理解对话机器人整体上有三大模块, 分别是:</p>
+
+<ul>
+<li>交互层 : 人接触的设备, 例如微信公众号, 智能音箱等</li>
+<li>语义解析层 : 将传入数据统一抽象, 并解析成软件能识别的数据结构</li>
+<li>对话管理层 : 负责处理上下文逻辑, 调用服务, 生成回复等.</li>
+</ul>
+
+<p>commune/chatbot 项目则有两大部分:</p>
+
+<ul>
+<li>framework (框架) : 负责接入交互层, 对接语义模块, 再到对话管理层的整个管道.</li>
+<li>host (对话管理) : 负责实现复杂多轮对话的管理.</li>
+</ul>
+
+<h2 id="什么是多轮对话">什么是多轮对话</h2>
+
+<p>按对话上下文关系分, 对话机器人有三类:</p>
+
+<ul>
+<li>单轮对话</li>
+<li>简单多轮对话</li>
+<li>复杂多轮对话</li>
+</ul>
+
+<p>单轮对话, 就是用户每次输入都当第一次输入对待. 现在常见的智能音箱就是这种.</p>
+
+<p>简单的多轮对话, 在识别任务后 (比如查询天气), 会用几轮对话来要求用户输入更多信息 (比如所在城市, 查询的日期), 信息充足后调用 api 执行逻辑.</p>
+
+<p>单轮对话, 是每句话之间没有上下文关系. 简单多轮对话, 是每一轮对话之间没有上下文关系.</p>
+
+<p>人类真正的对话是分形几何式的, 一大段对话可以分成很多小段, 每一小段又分成几段, 直到拆分成一句话. 每一句话, 每一段话之间都是上下文相关的. 一段对话同时可能有多个任务在进行.</p>
+
+<p>这需要实现各种特性 :</p>
+
+<ul>
+<li>分型几何结构</li>
+<li>上下文记忆</li>
+<li>语境跳转</li>
+<li>语境隔离</li>
+<li>语境脱出</li>
+<li>语境挂起</li>
+<li>多任务调度</li>
+<li>分布式一致性</li>
+</ul>
+
+<p>commune/chatbot 给以上特性提供了一种工程化的初步解决方案, 具体可以在demo中查看.</p>
+
+<h2 id="多轮对话的两种实现-工程-和-学习">多轮对话的两种实现, &ldquo;工程&rdquo;和&rdquo;学习&rdquo;</h2>
+
+<p>实现多轮对话有两种做法. 工程方法需要编程来写死多轮对话的逻辑, 而学习方法可以从大量多轮对话语料中, 用机器学习使机器人掌握的回复, 例如 rasa core .</p>
+
+<p>机器学习更偏重于&rdquo;对话&rdquo;, 而工程方法则能够对每一轮对话的处理逻辑进行编程. 机器学习更适合在积累大量对话语料之后, 掌握更灵活的对话逻辑. 而工程的手段则可以快速从无到有开发一个对话应用.</p>
+
+<p>两种实现方法互有利弊, 未来的趋势一定是有机地结合起来. commune/chatbot 目前是偏工程的, 旨在让程序员像开发 app, web 网站一样规范, 快捷地开发多轮对话应用.</p>
+
+<h2 id="commune-chatbot-项目地址">commune/chatbot 项目地址</h2>
+
+<p>本项目目前还在开发中, 文档还没有完善. 可以到 github 上查看源码.</p>
+
+<ul>
+<li>chatbot : 核心开发框架, 地址 <a href="https://github.com/thirdgerb/chatbot">https://github.com/thirdgerb/chatbot</a></li>
+<li>chatbot-laravel : chatbot 应用到 laravel 中的package, 地址 <a href="https://github.com/thirdgerb/chatbot-laravel">https://github.com/thirdgerb/chatbot-laravel</a></li>
+<li>chatbot-wechat : 基于 chatbot-laravel 的微信包. <a href="https://github.com/thirdgerb/chatbot-wechat">https://github.com/thirdgerb/chatbot-wechat</a></li>
+<li>chatbot-studio : 基于 laravel 的完整框架. <a href="https://github.com/thirdgerb/chatbot-studio">https://github.com/thirdgerb/chatbot-studio</a></li>
+</ul>
+
+<h2 id="commune-chatbot-的技术实现">commune/chatbot 的技术实现</h2>
+
+<p>commune/chatbot 项目选择用 php 语言来开发.</p>
+
+<p>首先因为 对话机器人 更适合用 &ldquo;解释型&rdquo; + &ldquo;弱类型&rdquo; 语言, 开发调试方面都有很大的便利. 所以作者在设计时没有选择 java 或者 go.</p>
+
+<p>而本项目在设计思路上, 同时大量使用面向对象和函数式变成的思路. 需要语言对两种编程风格都有足够的支持. php 是胜任的.</p>
+
+<p>最根本的原因是作者比较熟悉 php 的高级特性, 实现关键的思路比较顺手.</p>
+
+<p>本项目主要用到的组件有:</p>
+
+<ul>
+<li>php 组件:
+
+<ul>
+<li><a href="https://www.swoole.com/">swoole</a> : 用于启动服务 (tcp, web等)</li>
+<li><a href="https://symfony.com/">symfony</a> : 使用各种组件</li>
+<li><a href="https://laravel.com/">laravel</a> : 使用各种组件</li>
+<li><a href="https://easywechat.com">easywechat</a> : 搭建 wechat 服务</li>
+<li>monolog : 日志</li>
+<li>phpunit : 单元测试</li>
+<li>preds : 连接redis</li>
+</ul></li>
+<li>nlu (自然语言单元):
+
+<ul>
+<li>rasa nlu : 提供自然语言识别服务</li>
+<li>jieba : 中文分词</li>
+<li>mitie : 训练中文词向量模型</li>
+</ul></li>
+</ul>
+
+<h2 id="下一阶段的开发">下一阶段的开发</h2>
+
+<p>commune/chatbot 项目还在初步开发阶段. 我个人希望它能成为一个正式的, 有用的开源项目. 所以接下来仍会往这个方向推进:</p>
+
+<ul>
+<li>应用到具体产品上</li>
+<li>发布第一个正式版本</li>
+<li>编写使用文档</li>
+<li>搭建网站</li>
+</ul>
+
+<p>如果有用户需求, 就优先完善网站和文档. 如果初期没有别的用户需求, 我应该会推进用它开发产品, 证明使用价值. 初步考虑实现一个智能音箱的demo.</p>
+
+<h2 id="关于作者">关于作者</h2>
+
+<p>本人多年从事互联网服务端的开发工作. 自己设计的几个产品, 都曾想用对话的方式来实现.</p>
+
+<p>但主流的多轮对话开发框架, 如 <a href="https://hubot.github.com/">hubot</a>, <a href="https://botman.io/">botman</a> 等, 没有实现复杂多轮对话的能力, 无法满足我的需求.</p>
+
+<p>因此, 当我认为积累的设想足够能实现时, 就辞掉工作, 独立开发了这个框架.  由于攻克核心技术难度较大, 也遇上一些家务事, 历时三个多月才初步开发完成. 比预期多了一半的时间.</p>
+
+<p>如对此项目有了解的兴趣, 请关注微信公众号 CommuneChatbot, 或者与我联系(thirdgerb@gmail.com)</p>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-md-8">
+            
+              <div class="mb-5">
+                
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="https://thirdgerb.github.io/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+      <li><a href="https://thirdgerb.github.io/tags/commune-chatbot" role="button">commune-chatbot </a></li>
+      
+    
+  </div>
+</div>
+              </div>
+            
+            </div>
+            
+          </div>
+          
+
+          
+          <div class="row pt-3">
+            <div class="col-md-6">
+              
+                <a href=https://thirdgerb.github.io/posts/2019-03/php-preg-match-chinese/ class="post-meta">Previous
+                  <div class="pt-2 pb-5 d-flex">
+                    <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+                    <span>php中用正则匹配中文</span>
+                  </div>
+                </a>
+              
+            </div>
+            
+            <div class="col-md-6 text-right" >
+              
+            </div>
+          </div>
+
+          
+
+        </div>
+        
+        <div>
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "thirdgerb" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+
+
+      </div>
+      
+
+      
+	
+	
+	
+	
+		
+		
+		
+	
+
+		
+		<div class="col-md-2 pl-0">
+
+			
+			<div id="page-scrollspy" class="toc-nav">
+				
+				<ul class="nav nav-pills ml-0">
+					
+					<li class="nav-item pb-3 text-center">
+						<span class="font-weight-bold mb-2">- CATALOG - </span>
+					</li>
+
+					
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#demo-%e5%9c%b0%e5%9d%80">
+												 demo 地址:
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e4%bb%80%e4%b9%88%e6%98%af%e5%af%b9%e8%af%9d%e6%9c%ba%e5%99%a8%e4%ba%ba">
+												 什么是对话机器人
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%af%b9%e8%af%9d%e6%9c%ba%e5%99%a8%e4%ba%ba%e7%9a%84%e6%9e%84%e6%88%90">
+												 对话机器人的构成
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e4%bb%80%e4%b9%88%e6%98%af%e5%a4%9a%e8%bd%ae%e5%af%b9%e8%af%9d">
+												 什么是多轮对话
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%a4%9a%e8%bd%ae%e5%af%b9%e8%af%9d%e7%9a%84%e4%b8%a4%e7%a7%8d%e5%ae%9e%e7%8e%b0-%e5%b7%a5%e7%a8%8b-%e5%92%8c-%e5%ad%a6%e4%b9%a0">
+												 多轮对话的两种实现, “工程”和”学习”
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#commune-chatbot-%e9%a1%b9%e7%9b%ae%e5%9c%b0%e5%9d%80">
+												 commune/chatbot 项目地址
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#commune-chatbot-%e7%9a%84%e6%8a%80%e6%9c%af%e5%ae%9e%e7%8e%b0">
+												 commune/chatbot 的技术实现
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e4%b8%8b%e4%b8%80%e9%98%b6%e6%ae%b5%e7%9a%84%e5%bc%80%e5%8f%91">
+												 下一阶段的开发
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%85%b3%e4%ba%8e%e4%bd%9c%e8%80%85">
+												 关于作者
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+
+				</ul>
+			</div>
+			
+
+		</div>
+		
+	
+
+    </div>
+    
+
+
+  </main>
+  
+
+
+    
+    
+
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+
+  
+  <div class="pb-2 mt-5 pt-5">
+    
+      <a href="https://github.com/thirdgerb " target="_blank" rel="noopener"><i class="fab fa-github mr-3" aria-hidden="true"></i></a>    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+        <a href="mailto:thirdgerb@gmail.com"><i class="far fa-envelope-open mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+  </div>
+  
+
+  
+  <div class="copyright py-4">
+    
+    <span>  2016 - 2019 &copy; | Theme <a href='https://github.com/orianna-zzo/AllinOne' target="_blank">AllinOne</a> by <a href='https://github.com/orianna-zzo' target="_blank">Orianna</a>  </span>
+  </div>
+  
+
+</footer>
+
+
+    
+
+
+
+
+
+
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors/popper.min.js"></script>
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors/holder.min.js"></script>
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors-extensions/bootstrap4/bootstrap.js" ></script>
+
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors/mdb/mdb.min.js"></script>
+
+<script type="text/javascript" src="https://thirdgerb.github.io/js/main.js"></script>
+
+
+
+  
+  <script src="https://thirdgerb.github.io/js/vendors/highlight.pack.js"> </script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-81035041-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script type="text/javascript">
+  
+  new WOW().init();
+</script>
+
+
+
+
+  </body>
+</html>

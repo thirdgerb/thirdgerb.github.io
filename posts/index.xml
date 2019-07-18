@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 22 Mar 2019 16:38:07 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jul 2019 13:33:23 +0800</lastBuildDate>
     
 	<atom:link href="https://thirdgerb.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>多轮对话机器人框架 commune/chatbot demo发布</title>
+      <link>https://thirdgerb.github.io/posts/2019-07/commune-chatbot-demo-release/</link>
+      <pubDate>Thu, 18 Jul 2019 13:33:23 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2019-07/commune-chatbot-demo-release/</guid>
+      <description>commune/chatbot 的第一个demo 终于发布了!. 本项目是一个基于 php 开发的多轮对话机器人框架, 作者是 thirdgerb@gmail.com 它能用工程结合配置的方式, 开发各种能完成复杂多轮对话机器人, 可用于即时通讯软件和语音平台. demo 地址: 请使用微信扫描二维码, 进入微信公众号可以测试: (强烈推荐用桌面版微信测试) 或者在微信内搜索公众号: CommuneChatbot 什么是对话机器人 对话机器人, 指用户可以通过文字或语音对话理解用户的意图, 执行各种任务并将信息反馈给用户的机器人. 常见的</description>
+    </item>
     
     <item>
       <title>php中用正则匹配中文</title>
