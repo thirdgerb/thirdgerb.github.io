@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://thirdgerb.github.io/posts/2019-07/double-container-used-in-swoole/</loc>
+    <lastmod>2019-07-20T11:19:53+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://thirdgerb.github.io/posts/2019-07/commune-chatbot-demo-release/</loc>
     <lastmod>2019-07-18T13:33:23+08:00</lastmod>
   </url>
@@ -74,13 +79,13 @@
   
   <url>
     <loc>https://thirdgerb.github.io/tags/commune-chatbot/</loc>
-    <lastmod>2019-07-18T13:33:23+08:00</lastmod>
+    <lastmod>2019-07-20T11:19:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://thirdgerb.github.io/series/commune%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2019-07-18T13:33:23+08:00</lastmod>
+    <lastmod>2019-07-20T11:19:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -92,25 +97,31 @@
   
   <url>
     <loc>https://thirdgerb.github.io/tags/php/</loc>
-    <lastmod>2019-03-22T16:38:07+08:00</lastmod>
+    <lastmod>2019-07-20T11:19:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://thirdgerb.github.io/posts/</loc>
-    <lastmod>2019-07-18T13:33:23+08:00</lastmod>
+    <lastmod>2019-07-20T11:19:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://thirdgerb.github.io/series/</loc>
-    <lastmod>2019-07-18T13:33:23+08:00</lastmod>
+    <lastmod>2019-07-20T11:19:53+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://thirdgerb.github.io/tags/swoole/</loc>
+    <lastmod>2019-07-20T11:19:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://thirdgerb.github.io/tags/</loc>
-    <lastmod>2019-07-18T13:33:23+08:00</lastmod>
+    <lastmod>2019-07-20T11:19:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -123,6 +134,12 @@
   <url>
     <loc>https://thirdgerb.github.io/categories/%E5%B7%A5%E4%BD%9C%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2019-07-18T13:33:23+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://thirdgerb.github.io/categories/%E5%B7%A5%E7%A8%8B%E7%AD%96%E7%95%A5/</loc>
+    <lastmod>2019-07-20T11:19:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -140,7 +157,7 @@
   
   <url>
     <loc>https://thirdgerb.github.io/</loc>
-    <lastmod>2019-07-18T13:33:23+08:00</lastmod>
+    <lastmod>2019-07-20T11:19:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   

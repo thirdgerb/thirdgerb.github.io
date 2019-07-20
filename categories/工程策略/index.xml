@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Php on 烈风&#39;s Blog</title>
-    <link>https://thirdgerb.github.io/tags/php/</link>
-    <description>Recent content in Php on 烈风&#39;s Blog</description>
+    <title>工程策略 on 烈风&#39;s Blog</title>
+    <link>https://thirdgerb.github.io/categories/%E5%B7%A5%E7%A8%8B%E7%AD%96%E7%95%A5/</link>
+    <description>Recent content in 工程策略 on 烈风&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Sat, 20 Jul 2019 11:19:53 +0800</lastBuildDate>
     
-	<atom:link href="https://thirdgerb.github.io/tags/php/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://thirdgerb.github.io/categories/%E5%B7%A5%E7%A8%8B%E7%AD%96%E7%95%A5/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       
       <guid>https://thirdgerb.github.io/posts/2019-07/double-container-used-in-swoole/</guid>
       <description>简介: 容器(container)技术(可以理解为全局的工厂方法), 已经是现代项目的标配. 基于容器, 可以进一步实现控制反转, 依赖注入. Laravel 的巨大成功就是构建在它非常强大的IoC容器 illuminate/container 基础上的. 而 PSR-11 定义了标准的 container , 让更多的 PHP 项目依赖容器实现依赖解耦, 面向接口编程. 另一方面, PHP 天生一个进程响应一次请求的模型, 已经不能完全适应开发的需要. 于是 Swoole, reactPHP, roadrunner 也越来越流行. 它们共同的特点是一个 php worker 进程在生命周期内要响应</description>
-    </item>
-    
-    <item>
-      <title>php中用正则匹配中文</title>
-      <link>https://thirdgerb.github.io/posts/2019-03/php-preg-match-chinese/</link>
-      <pubDate>Fri, 22 Mar 2019 16:38:07 +0800</pubDate>
-      
-      <guid>https://thirdgerb.github.io/posts/2019-03/php-preg-match-chinese/</guid>
-      <description>原本以为正则匹配中文不是什么难事, 结果花了半个多小时. 没时间细细写, 简单记录一下: 正则里的字符本质上是个数, 用 [] 把字符括起来, 就是用数字范围来表示这些字符. 字母 + 数字 就很简单, 直接写 [a-zA-Z0-9] 要匹配中文, 通常是给定UTF-8 中中文起点和末尾的两个16进制数, 用来限定中文字符的范围. 但实际使用中踩了好几轮坑, 可以运行下面代码了解一下. &amp;lt;?php // 报warning, pcre 不支持 \u preg_match(&#39;/^[\u4e00-\u9fa5]+$/&#39;, $str); // 匹配不上 preg_match(&#39;/^[\x4e00-\x9fa5]+$/&#39;, $str); // 报错说 \x{} 里的数太大了 preg_match(&#39;/^[\x{4e00}-\x{9fa5}]+$/&#39;,</description>
     </item>
     
   </channel>
