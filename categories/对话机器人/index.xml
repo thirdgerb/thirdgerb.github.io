@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Commune开发笔记 on 烈风&#39;s Blog</title>
-    <link>https://thirdgerb.github.io/series/commune%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/</link>
-    <description>Recent content in Commune开发笔记 on 烈风&#39;s Blog</description>
+    <title>对话机器人 on 烈风&#39;s Blog</title>
+    <link>https://thirdgerb.github.io/categories/%E5%AF%B9%E8%AF%9D%E6%9C%BA%E5%99%A8%E4%BA%BA/</link>
+    <description>Recent content in 对话机器人 on 烈风&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Mon, 22 Jul 2019 21:08:32 +0800</lastBuildDate>
     
-	<atom:link href="https://thirdgerb.github.io/series/commune%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://thirdgerb.github.io/categories/%E5%AF%B9%E8%AF%9D%E6%9C%BA%E5%99%A8%E4%BA%BA/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -37,15 +37,6 @@
       
       <guid>https://thirdgerb.github.io/posts/2019-07/commune-chatbot-demo-release/</guid>
       <description>commune/chatbot 的第一个demo 终于发布了!. 本项目是一个基于 php 开发的多轮对话机器人框架, 作者是 thirdgerb@gmail.com 它能用工程结合配置的方式, 开发各种能完成复杂多轮对话机器人, 可用于即时通讯软件和语音平台. demo 地址: 请使用微信扫描二维码, 进入微信公众号可以测试: (强烈推荐用桌面版微信测试) 或者在微信内搜索公众号: CommuneChatbot 什么是对话机器人 对话机器人, 指用户可以通过文字或语音对话理解用户的意图, 执行各种任务并将信息反馈给用户的机器人. 常见的</description>
-    </item>
-    
-    <item>
-      <title>正式开始 Chatbot 项目的开发</title>
-      <link>https://thirdgerb.github.io/posts/2019-03/start-commune-chatbot-developing/</link>
-      <pubDate>Thu, 21 Mar 2019 17:31:01 +0800</pubDate>
-      
-      <guid>https://thirdgerb.github.io/posts/2019-03/start-commune-chatbot-developing/</guid>
-      <description>2019年3月21日重启这个博客. 今天我正式从单位离职了, 顶着经济压力和各方的质疑, 从现在开始启动 Commune/Chatbot 项目的开发. 重新开启博客, 一方面是为了记录Commune/Chatbot 开发和设计的相关文章, 也是为了把一些技术方面的经验和想法努力沉淀下来, 不让它们随波而逝. 一个项目的成败也很重要, 不过对技术热情的坚持更加重要. 希望能用脚踏实地的努力来验证自己离职做项目的决心, 也希望这段经历能把自己的技术视野提升</description>
     </item>
     
   </channel>

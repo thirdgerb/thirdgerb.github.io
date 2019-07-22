@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>多轮对话 on 烈风&#39;s Blog</title>
+    <link>https://thirdgerb.github.io/tags/%E5%A4%9A%E8%BD%AE%E5%AF%B9%E8%AF%9D/</link>
+    <description>Recent content in 多轮对话 on 烈风&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 22 Jul 2019 21:08:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://thirdgerb.github.io/tags/%E5%A4%9A%E8%BD%AE%E5%AF%B9%E8%AF%9D/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>对话机器人的关键功能点(一) : 复杂多轮对话的分形几何结构</title>
+      <link>https://thirdgerb.github.io/posts/2019-07/conversation-features/</link>
+      <pubDate>Mon, 22 Jul 2019 21:08:32 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2019-07/conversation-features/</guid>
+      <description>多轮对话机器人已经广泛地应用在智能客服, 智能音箱等领域. 它在技术上应该可以大致分拆成四个部分: 对话平台 : 负责获取和输出信息 ( 文字, 语音 或其它多媒体 ) 语义理解 : 负责将用户信息解析成数据结构 对话管理 : 负责执行用户意图, 生成反馈信号 输出合成 : 将反馈信号合成为文字或语音给用户 每个领域都存在许多技术难点. 而本文着重讨论 &amp;ldquo;对话管理&amp;rdquo; 领域的 &amp;ldquo;复杂多轮对话&amp;rdquo;问题. 以</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 20 Jul 2019 11:19:53 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jul 2019 21:08:32 +0800</lastBuildDate>
     
 	<atom:link href="https://thirdgerb.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Commune Chatbot</title>
       <link>https://thirdgerb.github.io/tags/commune-chatbot/</link>
-      <pubDate>Sat, 20 Jul 2019 11:19:53 +0800</pubDate>
+      <pubDate>Mon, 22 Jul 2019 21:08:32 +0800</pubDate>
       
       <guid>https://thirdgerb.github.io/tags/commune-chatbot/</guid>
       <description></description>
@@ -45,6 +45,15 @@
       <pubDate>Sat, 20 Jul 2019 11:19:53 +0800</pubDate>
       
       <guid>https://thirdgerb.github.io/tags/swoole/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>多轮对话</title>
+      <link>https://thirdgerb.github.io/tags/%E5%A4%9A%E8%BD%AE%E5%AF%B9%E8%AF%9D/</link>
+      <pubDate>Mon, 22 Jul 2019 21:08:32 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/tags/%E5%A4%9A%E8%BD%AE%E5%AF%B9%E8%AF%9D/</guid>
       <description></description>
     </item>
     
