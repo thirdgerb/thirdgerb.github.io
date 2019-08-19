@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
+  <meta name="author" content="烈风">
+  <meta name="description" content="本文作者基于个人兴趣开发了一个工程化的多轮对话机器人框架(CommuneChatbot). 这篇文章用来记录自己对多轮对话机器人问题的部分认识和思考. 由于见识有限, 仅供参考, 欢迎批评指教. 本文将讨论以下三个问题: 对话OS(主要基于语音的操作系统)是对话机器人的未来方向之一, 或将领衔下一轮的交互革命 复杂多轮对话问题是现阶段对话机器人短板, 关键在于定义哪些功能点 ( features ) 从对话OS角度看, 并非只有机器学习一">
+  
+  <meta property="og:title" content="对话OS的前景与复杂多轮对话的关键功能点" />
+<meta property="og:description" content="本文作者基于个人兴趣开发了一个工程化的多轮对话机器人框架(CommuneChatbot). 这篇文章用来记录自己对多轮对话机器人问题的部分认识和思考. 由于见识有限, 仅供参考, 欢迎批评指教. 本文将讨论以下三个问题: 对话OS(主要基于语音的操作系统)是对话机器人的未来方向之一, 或将领衔下一轮的交互革命 复杂多轮对话问题是现阶段对话机器人短板, 关键在于定义哪些功能点 ( features ) 从对话OS角度看, 并非只有机器学习一" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thirdgerb.github.io/posts/2019-08/multi-turn-conversation-bot-features/" />
+<meta property="article:published_time" content="2019-08-19T12:44:20&#43;08:00"/>
+<meta property="article:modified_time" content="2019-08-19T12:44:20&#43;08:00"/><meta property="og:see_also" content="https://thirdgerb.github.io/posts/2019-07/conversation-features/" /><meta property="og:see_also" content="https://thirdgerb.github.io/posts/2019-07/double-container-used-in-swoole/" /><meta property="og:see_also" content="https://thirdgerb.github.io/posts/2019-07/commune-chatbot-demo-release/" /><meta property="og:see_also" content="https://thirdgerb.github.io/posts/2019-03/start-commune-chatbot-developing/" />
+
+
+
+  <title>
+  
+       对话OS的前景与复杂多轮对话的关键功能点 | 烈风&#39;s Blog 
+  
+  </title>
+
+  <link rel="canonical" href="https://thirdgerb.github.io/posts/2019-08/multi-turn-conversation-bot-features/">
+
+  
+  
+
+  
+  <link href="https://thirdgerb.github.io/css/vendors-extensions/fontawesome/all.min.css" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600">
+  <link href="https://thirdgerb.github.io/css/font.css" rel="stylesheet"> 
+    
+  
+  <link href="https://thirdgerb.github.io/css/vendors/bootstrap4/bootstrap.min.css" rel="stylesheet">
+  <link href="https://thirdgerb.github.io/css/vendors-extensions/mdb/mdb.min.css" rel="stylesheet"> 
+  <link href="https://thirdgerb.github.io/css/vendors/mdb/style.min.css" rel="stylesheet"> 
+  <link href="https://thirdgerb.github.io/css/main.css" rel="stylesheet">
+
+
+  
+  <link rel="shortcut icon"
+  
+      href="https://thirdgerb.github.io/avatar.jpg"
+  
+  >
+
+
+  
+  
+
+  <style type="text/css">
+      @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1C2331!important;
+              }
+          }
+  </style>
+
+
+  
+  
+  
+
+  
+    
+    <link rel="stylesheet" href="https://thirdgerb.github.io/css/vendors/highlight/github-gist.css">
+  
+
+</head>
+
+  <body class="bg-light" data-spy="scroll" data-target="#page-scrollspy" data-offset="90">
+  
+    
+    
+
+    
+      
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      
+      
+      <a class="navbar-brand" href="https://thirdgerb.github.io/">
+          
+        <strong> Commune</strong>
+      </a>
+      
+
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item ">
+            <a class="nav-link" href="https://thirdgerb.github.io/">Home</a>
+          </li>
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://thirdgerb.github.io/posts/" >Posts  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://thirdgerb.github.io/about/" >About  </a>
+            </li>
+          
+          
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  
+ 
+      
+ 
+
+
+
+
+
+
+<div id="site-header" class="carousel slide carousel-fade" data-ride="carousel" style="height: 18rem;" >  
+
+  
+  
+  
+
+  
+  <div class="carousel-inner" role="listbox">
+    
+      
+
+        
+        <div class="carousel-item active">
+          <div class="view" style="background-image: url('https://thirdgerb.github.io/img/header-slides/raw_1515691746.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+              
+              
+              
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+      
+
+        
+        <div class="carousel-item">
+          <div class="view" style="background-image: url('https://thirdgerb.github.io/img/header-slides//raw_1515847341.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+
+  
+  </div>
+  
+
+  
+  <div class="carousel-content text-center white-text wow fadeIn">
+    <div class="row mx-0 headfont mt-3 pt-4">
+      
+      <div class="col-12 col-sm-5 align-middle">
+        <a href="https://thirdgerb.github.io/">
+          
+            <img class="pull-right avatar avatar-md" src="https://thirdgerb.github.io/avatar.jpg" alt="" >
+          
+        </a>
+      </div>
+      
+      <div class="col-12 col-sm-7 text-left pl-2">
+        <a href="https://thirdgerb.github.io/">
+          <h1 class="mb-2 h1" style="font-weight: 300;" >
+            <strong>烈风&#39;s Blog</strong>
+          </h1>
+        </a>
+        
+
+             
+        <div class="mt-2" style="font-size: 1rem; color: white;">
+            
+              <a href="https://github.com/thirdgerb" target="_blank" rel="noopener"><i class="fab fa-github pr-1" aria-hidden="true"></i></a>    
+            
+            
+
+            
+
+            
+
+            
+
+            
+    
+            
+    
+        
+            
+                <a href="mailto:thirdgerb@gmail.com"><i class="far fa-envelope-open pr-1" aria-hidden="true"></i></a>
+            
+    
+            
+
+            
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  
+
+</div>
+  
+    
+
+    
+  
+  <main class="container">
+    
+    
+    <div class="row">
+
+      
+
+      
+      <div class="col-md-10">
+      
+
+        
+        <div class="z-depth-1  post-wrapper white-bg single-post">
+
+          <div class="post-header text-center" >
+  <ul class="post-meta li-x">
+    
+      
+        <li><a href="https://thirdgerb.github.io/categories/%E5%AF%B9%E8%AF%9D%E6%9C%BA%E5%99%A8%E4%BA%BA"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> 对话机器人 </a></li>
+      
+    
+    
+      
+        <li><a href="https://thirdgerb.github.io/series/commune%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>commune开发笔记</a></li>
+      
+    
+  </ul>
+
+  <div class="px-4 post-heading">对话OS的前景与复杂多轮对话的关键功能点</div>
+
+  <ul class="post-meta li-x mt-1">
+    
+      <li>Aug 19, 2019</li>
+    
+
+    
+      <li class="middot"></li>
+      <li>20 minutes read</li>
+    
+  </ul>
+  
+
+</div>
+
+
+          <div class="post-content markdown">
+            
+
+<p>本文作者基于个人兴趣开发了一个工程化的多轮对话机器人框架(<a href="https://github.com/thirdgerb/chatbot">CommuneChatbot</a>). 这篇文章用来记录自己对多轮对话机器人问题的部分认识和思考.</p>
+
+<p>由于见识有限, 仅供参考, 欢迎批评指教.</p>
+
+<p>本文将讨论以下三个问题:</p>
+
+<ul>
+<li><code>对话OS</code>(主要基于语音的操作系统)是对话机器人的未来方向之一, 或将领衔下一轮的交互革命</li>
+<li><code>复杂多轮对话</code>问题是现阶段对话机器人短板, 关键在于定义哪些功能点 ( features )</li>
+<li>从<code>对话OS</code>角度看, 并非只有机器学习一条路, 工程化策略也有许多相对优势</li>
+</ul>
+
+<h2 id="认识复杂多轮对话交互">认识复杂多轮对话交互</h2>
+
+<h3 id="从交互角度看对话机器人">从交互角度看对话机器人</h3>
+
+<p>对话机器人在NLP技术推动下, 这几年又火了起来, 最火的领域是在线客服和智能音箱.
+可能在许多人心里, 对话机器人的重点在于<code>对话</code>, 类似小冰这种. 许多人似乎认为通过图灵测试是对话机器人最大的指标.</p>
+
+<p>而我一直把<code>对话</code> 理解成一种<code>交互方式</code>. 重点在于交互.</p>
+
+<p><code>对话机器人</code>在<code>交互</code>的思路中, 相当于一个<code>界面(interface)</code>, 和屏幕+键盘, 图形界面, 触屏等在本质上是一致的.</p>
+
+<p>在这种思路中, 看重的并不是能否纯自然语言对话, 能否通过图灵测试; 而是它能不能快速帮用户命中意图, 从而操作服务端, 智能设备, 物联网设备来解决问题.</p>
+
+<p>也可以把这个方向的对话机器人直接定义为<code>对话OS</code> (对话形式的操作系统).</p>
+
+<h3 id="对话os可能带来一场交互革命">对话OS可能带来一场交互革命</h3>
+
+<p>我们接触的设备, 最早的OS(操作系统) 可能是 仪表盘+按钮+阀门,
+目前已经成了一种怀旧的审美风格(蒸汽朋克)</p>
+
+<p>个人电脑的诞生, 除了硬件技术的革命外, 屏幕+键盘 的交互形式也是必要条件.</p>
+
+<p>图形化+鼠标带来的交互革命, 已经统治了个人电脑几十年, 催生了微软和苹果两个帝国.</p>
+
+<p>由iphone代表的触屏交互, 则带来了移动互联网的黄金十年, 我们目前正生活在这个时代.</p>
+
+<p>马上就要来临的下一个交互时代, 我认为会是多种模式的. 语音, 动作, 视觉追踪都会扮演重要角色;
+而语音交互将会是最先成熟的交互形式.</p>
+
+<hr />
+
+<p>回想 屏幕+键盘 把计算机带到了个人的家中. 而触屏交互最大的意义, 在于<code>空间上解放了人</code>.</p>
+
+<p>电脑的昂贵不在于显卡或cpu, 而在于你要拥有独立的空间, 比如在北京这样的城市有自己独居的卧室,
+才能摆放它. 而触屏交互, 让我们在被窝里, 在马桶上, 在马路牙子上, 在餐桌旁, 在地铁里&hellip; 都能使用智能设备和互联网. 它在降低成本的同时, 也带来了生产力的革命.</p>
+
+<p>所以我才看好对话机器人. 因为它能把语音交互发展成 OS. 从而在<code>姿势上解放了人</code>.</p>
+
+<p>我们不需要低头眼睛盯着屏幕, 僵硬着双肩握着触屏了.
+这意味着可以在骑车, 走路, 跑步, 做饭, 开车, 开会演讲等各种行动姿态下使用智能设备.</p>
+
+<p>而且<code>语音OS</code> 比基于视觉的OS还有一个直接的优势, 语义是可以直达意图的, 而不需要通过层层嵌套的页面点击进自己需要的功能.</p>
+
+<p>因此 &ldquo;手机&rdquo; 作为智能设备的躯壳, 如同 &ldquo;个人电脑&rdquo; 作为智能设备的躯壳一样, 都变得不重要了.
+我想象未来以语音作为OS主体的智能设备, 会完全解体, 分散到智能穿戴, 物联网设备和云端上.
+于是带来软件和硬件的双重革命, 在解放生产力的同时也带来一个类似移动互联网式的数十年繁荣.</p>
+
+<h3 id="足够-聪明-的nlp技术并非-对话os-所必要">足够 &ldquo;聪明&rdquo; 的NLP技术并非 &ldquo;对话OS&rdquo; 所必要</h3>
+
+<p>现阶段多轮对话机器人已经很火, 比如智能客服和智能音箱. 但以&rdquo;OS&rdquo;的标准来看还远未成熟.</p>
+
+<p>事实上现在语音识别, 语音合成, 语义识别的能力都已经做到生产环境可用了.
+离图灵测试标准虽然差十万八千里, 但 &ldquo;对话OS&rdquo; 并不需要成熟的图灵机器人.</p>
+
+<p>要知道 windows, office, mac 这些非常成熟, 交互非常贴近人理解的软件, 还都有教程和说明书呢.
+更不用说程序员熟悉的 shell 了. 为什么 &ldquo;对话OS&rdquo; 非要往图灵测试方向走, 要去无限响应用户的表达呢?
+连电影《钢铁侠》《蜘蛛侠》里都会拿语义理解错误导致的 &ldquo;人工智障&rdquo; 开玩笑 (蜘蛛侠给AI &ldquo;星期五&rdquo; 下命令, 理解成杀死同学 ).</p>
+
+<p>我认为 <code>对话OS</code> 现阶段需要的不是五岁小孩也能操作它, 而是在给定范围内能准确执行用户的意图.
+对边界意图的识别也许技术上很耀眼 (例如能理解&rdquo;以前喜欢一个人, 现在喜欢一个人&rdquo;), 但并非关键, 其实人类自己会学习最好的表达方式去和OS交互, 因为目的明确时, 为的就是最高效地操作设备.</p>
+
+<h3 id="多轮对话管理-或是-对话os-目前的短板">&ldquo;多轮对话管理&rdquo; 或是 &ldquo;对话OS&rdquo; 目前的短板</h3>
+
+<p>所以用 &ldquo;对话OS&rdquo; 的需求来看, 我觉得对话机器人目前最大的短板反而是 &ldquo;多轮对话管理&rdquo;.</p>
+
+<p>先介绍一下 &ldquo;多轮对话&rdquo; 的含义. 首先看什么是 &ldquo;单轮对话&rdquo;</p>
+
+<pre><code>用户: 你好!
+机器人: 你好呀  // 一轮对话
+
+用户: 北京今天什么天气?
+机器人: 北京今天晴天, 气温29度, 注意防晒 // 上下文无关的另一轮对话
+</code></pre>
+
+<p>如果用户一个意图需要多次单轮对话组成, 那就是 &ldquo;一阶多轮对话&rdquo; :</p>
+
+<pre><code>用户: 北京今天什么天气?
+机器人: 北京今天晴天, 气温29度, 注意防晒
+用户: 后天呢?
+机器人: 北京后天多云, 气温30度 // 时间改变, 地点没改变, 需要上下文记忆
+用户: 那上海呢?
+机器人: 上海后天晴天, 气温28度 // 地点改变, 时间没改变, 需要上下文记忆
+</code></pre>
+
+<p>而真正的自然语言对话, 不是 &ldquo;一阶&rdquo; 的, 而是 &ldquo;n阶&rdquo; 多轮对话相互嵌套, 构成一种分形结构</p>
+
+<pre><code>用户: 你好!
+机器人: 您好, 请问有什么能帮您的? // 入口, 澄清需求
+
+    用户: 我想订一份午餐 // 进入点购外卖的需求
+        机器人: 好的, 这是我们的菜单 ... 请问您需要什么 // 进入选择环节
+
+            用户: 来一份大盘鸡吧
+            机器人: 好的. 请问要什么辣度, 我们有不辣, 微辣, 中辣 // 相当于填写表单
+            ... // 多轮确认
+
+        机器人: 您已点了大盘鸡, 还需要什么吗?
+        用户: 再来一个凉菜的拼盘吧 // 进入另一个点菜环节
+
+            机器人: 好的, 我们这儿有 .... 您可以任选五种 // 继续填表单
+            用户: 随便吧 // 跳过填写流程
+            机器人: 好的, 我给您选了 .... 您看是否可以 // 确认环节
+            用户: 行
+
+        用户: 再来一个辣椒炒肉
+        机器人: ...
+        用户: 等等, 这个菜我不要了, 换一个 // 跳出当前多轮对话
+        ... // 继续点其它菜品
+
+        用户: 这些菜就够了 // 结束点菜环节
+
+        机器人: 好的. 总共是 201 块钱, 订单是... 您看对吗? // 订单确认
+        用户: ok
+
+        机器人: 您上次的送餐地址是 ... , 这次还是这里吗? // 确认地址
+            用户: 不是, 这次地址是 .... // 进入确认地址的对话
+            ...
+
+        机器人: 好的, 请您支付, 这是支付的链接 // 进入付款环节
+        用户: 支付中...
+
+        机器人: 您的订单 ... 已经开始制作. // 任务挂起.
+
+机器人: 请问我还能为您做些什么 ? // 回到澄清需求
+用户: 正好有个事情我要问你一下 ... // 进入新的需求
+    ... // 执行新的需求
+
+    机器人: 对了, 您的餐品刚才已经发出, 大概 20分钟后快递员会给您送到 // 挂起任务苏醒+通知
+    用户: 好的.
+
+    机器人: 那我们继续回到刚才的话题, ... // 任务调度, 还原挂起任务
+
+用户: 我没有别的事情了.
+机器人: 好的, 谢谢您的光临, 下次再见! // 结束会话.
+</code></pre>
+
+<p>这是一个<code>N阶多轮对话</code>的例子. 多个<code>1阶多轮对话</code>相互嵌套, 带来了一系列<code>1阶多轮对话</code>不存在的技术问题, 例如: <code>语境的嵌套, 导航, 跳转, 隔离, 脱出, 意图域的隔离, 上下文记忆, 多任务调度, 任务挂起, 任务唤醒</code>等等&hellip;</p>
+
+<p>而目前的 NLP 对话机器人, 大多通过 &ldquo;词槽&rdquo; 等方式实现上下文记忆和多轮对话, 本质上多是 &ldquo;1阶多轮对话&rdquo;.
+或者允许从一个多轮对话, 跳到另一个多轮对话, 但不构成嵌套的话, 其实仍然是1阶, 至多称之为1.5阶.</p>
+
+<p>如果我们把抽象提高一层, <code>多轮对话</code> 的本质是 <code>多轮交互</code>.
+可以看到, 已经成熟的各种OS, 例如 &ldquo;触屏&rdquo;, 都能完整地实现 &ldquo;N阶多轮交互&rdquo; .
+但对话机器人目前还没走到这一步. 这意味着对话机器人, 还开发不出类似 app 和网站那样成熟的应用.</p>
+
+<p>所以我反而觉得<code>复杂多轮对话</code>才是<code>对话OS</code>目前的短板所在.</p>
+
+<h3 id="工程化-策略对-对话os-是可行的">&ldquo;工程化&rdquo; 策略对 &ldquo;对话OS&rdquo; 是可行的</h3>
+
+<p>对话机器人的实现, 目前有两种思路.</p>
+
+<p>一种是过去延续下来的, <code>工程化</code>(规则化)的思路, 靠写代码, 进一步写配置, 来定义对话流程; 另一种则是从海量语料中通过机器学习等方法<code>训练</code>机器人.</p>
+
+<p>前者更适合冷启动开发功能, 但和app, web开发一样要堆人力.
+而后者在语料大数据前提下, 或能足够廉价地训练出拟人的机器人.</p>
+
+<p>由于对话机器人这几年的繁荣是 NLP 技术发展推动的.
+所以现阶段我看到的对话机器人, 大多都是按 &ldquo;拟人&rdquo; 的标准来定义功能的.
+它们对标人工客服, 语音电销等, 目的是取代人工.</p>
+
+<p>而那些不言明身份的智能客服, 本质上就是一个大规模图灵测试.</p>
+
+<p>但据我上文的理解, NLP 技术现在达不到图灵测试的要求, 而且也并非 &ldquo;对话OS&rdquo; 所必须.
+完全按 &ldquo;图灵测试&rdquo; 的标准来设计 &ldquo;对话OS&rdquo; , 我觉得没有必要.</p>
+
+<p>如果对标其它的<code>交互OS</code>, 比如桌面软件, 浏览器网站, app应用, 目前都是由<code>工程化</code>在主导.
+从这个角度来看, <code>对话OS</code> 目前在<code>多轮对话</code>的领域, 可以走 &ldquo;工程化优先&rdquo; 的路.
+快速用工程开发应用, 冷启动, 快速迭代. 积累足够多语料后, 再通过 NLP 技术赋予用户更贴近自然习惯的多轮对话管理.</p>
+
+<p>而这一个方向只有一个很小很小的门槛没跨过: 不是按<code>拟人</code>的标准定义多轮对话的功能点, 而是按<code>对话OS</code>的标准去定义.</p>
+
+<p>一旦功能点 (features) 被定义出来; 对话机器人就像软件, 网站, 浏览器一样, 很快就能被工程师研发出来.</p>
+
+<p>以上的思考, 正是我开发 CommuneChatbot 项目的初衷.</p>
+
+<h2 id="复杂多轮对话机器人的功能点">复杂多轮对话机器人的功能点</h2>
+
+<p>CommuneChatbot 项目的自我定位是一个<code>工程化的复杂多轮对话机器人框架</code>.</p>
+
+<p>它的许多工程上的技术细节, 是资深的服务端工程师都能做到的, 许多点别人能比我做得更好. 而最大的心血其实不是如何工程上实现, 而是如何定义<code>复杂多轮对话的功能点</code>(features).</p>
+
+<p>许多人当面表示这个事情很容易吧. 但实话实说, 本人把 18年大多数可工作的业余时间, 都用来思考这个项目, 才得到了一套解决方案.</p>
+
+<p>主要做了三类思考:</p>
+
+<ul>
+<li>对自然对话的各种现象进行分析, <code>抽象出多轮对话功能点</code></li>
+<li><code>设计, 创建多轮对话模型</code>以实现这些抽象化的功能点</li>
+<li>设计工程方案, 在<code>分布式服务端</code>实现这个多轮对话模型</li>
+</ul>
+
+<p>先不说成品是否存在各种问题, 但这个设计的过程, 并没有找到任何一个可以直接借鉴的对象. 我调研的开源项目 <a href="https://hubot.github.com/">hubot</a> , <a href="https://www.botkit.ai/">botkit</a>, <a href="https://botman.io/">botman</a> 都有一定多轮对话的能力, 但在<code>n阶多轮对话</code> 问题上是不足的.</p>
+
+<p>以他们工程师的水平来看, 工程实现的能力非常强大. 之所以没有实现我关心的功能点, 也许因为它们已满足目前生产环境的需求. 尚未让他们提出其它 features.</p>
+
+<p>如果对标的是拥有<code>成熟多轮交互</code>能力的其它OS(比如浏览器等), 我认为下面的 features 是必不可少的:</p>
+
+<ul>
+<li>语境嵌套, 跳转与隔离</li>
+<li>流程分支, IO, 跳转, 导航, 与脱出</li>
+<li>语境过滤与回归</li>
+<li>有作用域的上下文记忆</li>
+<li>任务暂停, 挂起与唤醒</li>
+</ul>
+
+<h3 id="语境嵌套-跳转与隔离">语境嵌套, 跳转与隔离</h3>
+
+<p>我们的每一轮对话都发生在一个具体的上下文中. 同样的话语, 在不同上下文中的理解和反馈是截然不同的.</p>
+
+<p>这需要对上下文进行建模, 构成<code>语境</code>的存在.
+从<code>交互OS</code>的角度来看, <code>语境</code>非常好理解. 例如把<code>浏览器</code>当成一种OS.
+每一个 <code>URL 对应的页面</code>, 就是一个独立的<code>语境</code>.</p>
+
+<p>在不同的页面上, 可进行的操作完全不同. 因此<code>浏览器语境</code>是相互<code>隔离</code>的.</p>
+
+<p>一个页面只允许通过页面内的链接, 跳到指定的另一批页面, 所以<code>跳转</code>的逻辑是受约束的.</p>
+
+<p>浏览器上未登录用户会先跳到登陆页, 登录完再跳回来. 各种功能都与此类似, 是由多个页面在逻辑上相互嵌套, 然后构成一个完整的<code>多轮交互</code>. 这种嵌套原则上是分形的, 允许无限嵌套, 所以是<code>n阶多轮交互</code>.</p>
+
+<p>这些功能点, 只实现到<code>1阶多轮交互</code>的对话机器人就暂时不具备. 常见的问题有:</p>
+
+<ul>
+<li>依赖唤醒词: 通过唤醒词强行中断, 开启另一个多轮对话来做跳转, 而不是嵌套.</li>
+<li>完全开放域: 机器人永远都在匹配 N种 意图, 不会在一个语境匹配 N种, 另一个匹配 M 种</li>
+<li>完全封闭域: 进入多轮对话, 流程尚未结束时, 完全不能匹配其它意图</li>
+<li>无法组件式复用: 例如两组对话都要求 &ldquo;录入家庭信息&rdquo;, 但流程各自都要重新定义一遍.</li>
+</ul>
+
+<p>其实对<code>网页多轮交互</code>的建模经验, 同样可以借鉴到<code>对话多轮交互</code>的建模任务中. 不过和浏览器, 桌面软件不同; 人类对话的<code>语境</code>不存在于<code>视觉</code>中, 而存在于<code>记忆</code>中. 我分析记忆里的上下文包含以下方面:</p>
+
+<ul>
+<li>当前对话的目的</li>
+<li>需要记忆的参数</li>
+<li>对输入和输出的管理 (IO)</li>
+<li>执行各种逻辑</li>
+<li>之前对话的轨迹</li>
+</ul>
+
+<p>对程序员而言, 这种<code>上下文</code>的定义和<code>程序语言</code>本身是一回事. <code>语境</code>就像<code>function</code> 或者 <code>object</code>; 而多个语境的嵌套, 跳转, 和多个<code>function</code>嵌套构成的<code>stack</code>本质上是一回事 (也会因循环重定向导致overflow).</p>
+
+<p>因此, 我认为就<code>对话OS</code>而言, 自然语言的 <code>多轮对话交互</code> 本身也能用<code>图灵完备</code>的标准设计出来. 用程序语言同样的工程思路来定义人类的<code>n阶多轮对话</code>.</p>
+
+<p>CommuneChatbot 的解决方案中, 多轮对话内核叫做<code>OOHost</code>, 采用的是<code>面向对象</code>的工程思路. 它把每一个<code>上下文语境</code>定义为一个名为<code>Context</code>的对象.</p>
+
+<p>通过<code>Context</code> 组织成的上下文流程, 在 CommuneChatbot 中又分为:</p>
+
+<ul>
+<li>process : 会话级别的上下文</li>
+<li>thread : 当前任务级别的上下文</li>
+<li>task : 子任务, 组件级别的上下文</li>
+<li>stage : 流程级别的上下文</li>
+</ul>
+
+<p>stage 级别的语境是最底层的. 由它来定义能够做的上下文理解, 从而实现隔离. 所有的语境单位在工程上都是组件化的, 可以复用.</p>
+
+<p>类似网页的url跳转, 上下文语境互相之间也有各种复杂的跳转关系. CommuneChatbot 的模型里定义了一部分, 例如 :</p>
+
+<ul>
+<li>路径导航
+
+<ul>
+<li>backward</li>
+<li>forward</li>
+</ul></li>
+<li>跳转 ( redirect )
+
+<ul>
+<li>goStage</li>
+<li>sleepTo</li>
+<li>replaceTo</li>
+<li>yieldTo</li>
+<li>dependOn</li>
+</ul></li>
+<li>回归 ( callback )
+
+<ul>
+<li>next</li>
+<li>fullfill</li>
+</ul></li>
+<li>脱出 ( exiting )
+
+<ul>
+<li>cancel</li>
+<li>reject</li>
+<li>fail</li>
+</ul></li>
+<li>拦截事件
+
+<ul>
+<li>callback</li>
+<li>onWake</li>
+<li>onCancel</li>
+<li>onReject</li>
+<li>onFail</li>
+</ul></li>
+</ul>
+
+<p>这些流程产生的路径会形成类似栈的数据结构, 存储在分布式一致性的介质里. 通过下一轮对话得以在 session 中还原.</p>
+
+<p>这种建模相当于用现成的面向对象语言模拟出另一个面向对象语言, 用后者来设计复杂多轮对话.
+除了工程可读性上要做很多设计之外, 唯一的难度在于后者是在分布式服务器集群中实现, 而不是在内存中;
+所以建模需要考虑数据的分布式一致性, 数据体积, 序列化存储, 还原等等.</p>
+
+<h3 id="流程分支-循环-io-跳转-导航-与脱出">流程分支, 循环, IO, 跳转, 导航, 与脱出</h3>
+
+<p>用<code>编程语言</code>的思路来看待多轮对话的建模, 一些关键的 features 就不言自明了.
+让我们看看编程语言最常见的特性:</p>
+
+<ul>
+<li>分支: if&hellip;else&hellip; , 然后走不同的分支</li>
+<li>循环: for, while 等, 实现逻辑的 loop 与 break</li>
+<li>IO: 遇到IO时需要程序挂起, 等待用户输入. 在对话中则是等待回复. 每一步都可校验</li>
+<li>跳转: function 的嵌套, 参数的传递, return后回到的位置. 通过 stack 实现</li>
+<li>导航: 因用户输入暂时跳出当前流程, 进入另一个流程. 类似 goto</li>
+<li>脱出: 中断当前流程, 类似 try catch exception</li>
+</ul>
+
+<p>这些特性在人类自然语言的多轮对话中是同样存在的, 编程语言本来就是对自然语言的模拟.</p>
+
+<p>但目前的多轮对话机器人不一定实现了所有的features, 所以可以看到些一些现象:</p>
+
+<ul>
+<li>不能单步校验输入, 需要 N 个输入完成后统一校验</li>
+<li>循环对话需要指定次数, 无法动态编程, 或不能break</li>
+<li>无法实现组件化的多轮对话, 每个复用的逻辑都要在定义对话时重写一次</li>
+<li>无法中断, 跳过流程(例如买东西告知属性时, 用户说&rdquo;随便&rdquo;)</li>
+<li>从一个语境到另一个语境, 前面的语境就消失了</li>
+<li>在N阶多轮对话中, 出错或用户退出, 就直接退出所有语境. 只有统一的退出提示.</li>
+</ul>
+
+<p>更重要的一点是, 完全基于机器学习打造的多轮对话机器人 (把多轮对话上下文序列化, 作为机器学习的输入), 除非语料足够丰富满足各种对话分枝的要求, 否则很难启动时就具备完整的路径规划.</p>
+
+<p>在高度组件化的前提下, 用工程的手法开发一个新的多轮对话, 类似开发app 和网站, 程序员几个小时就能完成, 甚至可以按 TDD 思路设计自动化测试 (在多轮对话中录制多轮对话以测试多轮对话).</p>
+
+<p>而几个小时的时间, 可能还不足以让机器学习完成一次神经网络的训练, 不用说测试了.</p>
+
+<p>所以我认为, 用<code>图灵完备</code> 的工程化对话机器人开发多轮对话, 比机器学习开发起来还能更高效; 而前者能够冷启动为后者积累语料; 两种策略都需要在生产环境中反复迭代打磨才能变得优秀, 完全可以用某种策略来使两者很好地配合.</p>
+
+<h3 id="语境过滤与回归">语境过滤与回归</h3>
+
+<p>这儿定义的<code>语境过滤与回归</code>比 if&hellip;else&hellip; 的情况要更复杂.</p>
+
+<p>简单来说, 当对话由 A 语境进入到 B 语境之后, 只有 A 语境不能解决的对话才交给 B 语境, 我称之为<code>语境过滤</code> .</p>
+
+<p>对话由 A 语境进入到 B 语境之后, B 语境解决不了的对话会重新交给 A 语境来解决, 我称之为 <code>语境回归</code> .</p>
+
+<p>如果类比 <code>浏览器交互</code> 的话, 这种 A 和 B 语境的关系, 类似浏览器自带菜单和展示页面的关系. 无论当前页面是哪一个, 点击浏览器上的 &ldquo;前进&rdquo;, &ldquo;后退&rdquo;, &ldquo;关闭&rdquo; 或是点击 &ldquo;收藏夹&rdquo; 都比点击页面的优先级更高.</p>
+
+<p>之所以存在 &ldquo;过滤&rdquo; 与 &ldquo;回归&rdquo; 的问题, 因为<code>视觉交互</code>可以在 N 个目的中精准地定位到其中一个. 而<code>语言交互</code> 则必须按优先级筛选所有 N 个可能性. 匹配到的意图, 在不同的语境中有截然不同的含义. 这样 <code>过滤</code> 与 <code>回归</code> 的优先级应该要能体现多重语境的嵌套.</p>
+
+<p>工程化的解决思路其实很成熟, 就是把语境的嵌套做成一个洋葱的形状. 输入从外层进入, 层层往里; 然后从内层输出结果, 层层往外. 每一层都对输入拦截一次, 再对输出拦截一次, 构成一个洋葱式的管道.</p>
+
+<p>在 CommuneChatbot 中, 则是可以从一个包含上下文的 Session A 中新开一个 Session B, 只有Session A 不拦截的输入才交给 Session B, 而 Session A 要解决 Session B 无法响应的输入.</p>
+
+<p>类似这样的工程需求, 我目前都想不到如何保证机器学习的对话机器人能准确实现.</p>
+
+<h3 id="有作用域的上下文记忆">有作用域的上下文记忆</h3>
+
+<p>既然有上下文, 就一定有记忆. 常见的多轮对话机器人有两种记忆模式, 一种是 &ldquo;1阶多轮对话&rdquo; 本身的记忆, 通常用 <code>填槽</code> (slots) 的方式实现. 在对话未完成时, &ldquo;slots&rdquo; 的值是跟着走的.</p>
+
+<p>如果两个 &ldquo;1阶多轮对话&rdquo; 要共享记忆, 常见的做法就不是由多轮对话内核去管理, 而是业务方自己在api里存储. 自己定义一套全局的记忆模块, 无论基于数据表或缓存.</p>
+
+<p>如果用<code>编程语言</code>的角度来看, 上下文记忆无非是三种情况:</p>
+
+<ul>
+<li>局部变量</li>
+<li>外部变量</li>
+<li>全局变量</li>
+</ul>
+
+<p>程序员对这种抽象就很容易理解了. 随着语境的需要, 我们要能通过:</p>
+
+<ul>
+<li>参数传递, 获取局部变量</li>
+<li>获取外部域变量</li>
+<li>获取静态变量</li>
+</ul>
+
+<p>的方式获取各种上下文记忆.</p>
+
+<p>CommuneChatbot 中我自认为设计了一种巧妙的办法, 将上下文记忆和多轮对话的生命周期结合了起来.
+框架里所有的上下文, 都作为一个<code>context</code> 对象, 并在分布式服务端集群里用唯一ID存储到了缓存或数据表中.</p>
+
+<p>只要生成<code>唯一ID本身对作用域敏感</code>, 就能按作用域任意生成相互隔离和共通的记忆了. 我设计了许多个作用域的维度:</p>
+
+<ul>
+<li>userId</li>
+<li>chatId</li>
+<li>messageId</li>
+<li>SessionId</li>
+<li>Date: y m d h i</li>
+<li>等等&hellip;</li>
+</ul>
+
+<p>在定义 <code>Memory对象</code> ( 也是Context 的一种 ) 时, 需要从这 N 个维度中挑选 M 个维度, 会用这些维度的值生成一个唯一的ID. 当下一次请求获取 Memory 时, 如果 M 个维度一致, 就能通过同样的 ID 取出上次的记忆.</p>
+
+<p>从而用工程化的方式, 在多轮对话内核中, 实现灵活的按作用域隔离的上下文记忆.</p>
+
+<h3 id="任务暂停-挂起与唤醒">任务暂停, 挂起与唤醒</h3>
+
+<p><code>编程语言</code> 中有很重要的一块, 是程序逻辑的调度. 常见的有:</p>
+
+<ul>
+<li>进程调度</li>
+<li>线程调度</li>
+<li>协程调度</li>
+</ul>
+
+<p>多半通过操作系统内核实现, 而协程是语言用户态自己实现.</p>
+
+<p>这种抽象的现象, 也是符合人类自然语言的规律的. 举一个例子:</p>
+
+<pre><code>用户: 您好, 我想要办理XXX业务.
+机器人: 好的, 您需要先告诉我您的身份证号码
+
+用户: 稍等, 我想问一下, 您可以办理YYY业务吗? // 任务中断, 进入另一个任务
+机器人: 可以的, 只需要...
+
+用户: 好的 // 另一个任务完成.
+机器人: 那请您继续告诉我您的身份证号码 // 唤醒当前任务, 话术有变化
+
+...
+
+机器人: 您的身份证提交去查验了. 2分钟后告诉您结果. 请问您还有什么需要吗? // 任务挂起
+用户: 有的, 我还需要...
+机器人: 可以, 您要... // 开始新的对话
+...
+用户: 哦, 那我还需要干什么 // 新对话进行中
+
+机器人: 稍等, 您的身份证查验结束了, 结果是 .... // 挂起任务唤醒, 抢占对话
+机器人: 您还需要下一步修改吗?
+用户: 不用了 // 结束唤醒的对话.
+
+机器人: 好的. 您刚才的问题是 &quot;那我还需要干什么&quot;, 您还需要... // 退回当前任务
+</code></pre>
+
+<p>类似这样, 涉及到延时, 异步通知等需求, 是常见的多任务调度内容. 这个 feature 对智能助理是必要条件之一.</p>
+
+<p>用工程化的手段来实现, 无非是在分布式服务端中模拟操作系统的任务调度.
+要用机器学习来实现的话, 我想工程复杂度反而会消耗掉自主学习的优势.</p>
+
+<p>在 CommuneChatbot 中定义了三个 feature 来实现任务调度:</p>
+
+<ul>
+<li>replace</li>
+<li>sleep &amp; wake</li>
+<li>yield to service &amp; service callback</li>
+</ul>
+
+<p>由于目前还没有明确生产环境的检验, 所以仅供参考.</p>
+
+<h3 id="其它工程化的好处">其它工程化的好处</h3>
+
+<p>目前的对话机器人, 往往对话管理模块在机器人一方 (机器学习实现为主), 而业务 api 在业务方, 两者在物理上是分离的.
+因此要通过 api 接口传递完整的上下文, 要处理大量的信息.</p>
+
+<p>用工程化的思路兼容多轮对话管理, 则上下文可以把大部分内容转移到业务方. 业务方可以在自己的项目中实现各种便捷的工程手段, 例如:</p>
+
+<ul>
+<li>离线开发对话机器人</li>
+<li>本地测试流程</li>
+<li>单步逻辑可校验</li>
+<li>让多轮对话流程在代码里可读 (阅读代码能理解流程)</li>
+<li>IoC 容器基于依赖注入来管理服务</li>
+<li>围绕对话生命周期建立自己的监控体系</li>
+<li>组件化地管理 &ldquo;1阶多轮对话&rdquo;</li>
+<li>根据业务需求, 自己开发配置化的策略, 方便非程序员管理</li>
+<li>使用分布式配置中心, 在线控制多轮对话逻辑 (比如开启和关闭折扣商品引导)</li>
+<li>等等&hellip;</li>
+</ul>
+
+<p>这些工程便利, 在传统的 app 和 web网站 的开发中很常见. 但在多轮对话机器人中还很少看到. 对话管理在云端和业务方的分离也带来了许多额外的工作量.</p>
+
+<p>使用机器学习打造的对话机器人, 一个很小的逻辑调整都可能要重新整理语料, 重新训练. 因此工程化的机器人在这些方面应该是具备优势的.</p>
+
+<h2 id="后话">后话</h2>
+
+<h3 id="写文本的动机">写文本的动机</h3>
+
+<p>关于复杂多轮对话机器人的功能点, 之前本想拆开来写一个系列文章, 方便人看. 现在感觉思路太散不好延续,
+还是用一篇文章把想法先讲完好.</p>
+
+<p>本文是我关于 &ldquo;复杂多轮对话机器人&rdquo; 的相关思考和实现思路. 综合而言有三点:</p>
+
+<ul>
+<li><code>语音OS</code>(语音操作界面)是对话机器人的未来方向之一, 或将领衔下一轮的交互革命</li>
+<li><code>复杂多轮对话</code>问题是现阶段对话机器人短板, 关键在于定义哪些功能点 ( features )</li>
+<li>从<code>对话OS</code>角度看, 并非只有机器学习一条路, 工程化策略也有许多相对优势</li>
+</ul>
+
+<p>CommuneChatbot 项目本身就是本着这三点思考而创建, 开发的.
+它首先承载了对话机器人的框架功能, 用来整合各个组件, 包括:</p>
+
+<ul>
+<li>平台接入 (即时通讯, 智能音箱, 等)</li>
+<li>输入转换模块 (例如语音转文字)</li>
+<li>语义理解模块 (NLU, 用于解析语义)</li>
+<li>多轮对话管理模块</li>
+<li>输出转换模块 (例如i18n, 文字转语音等)</li>
+</ul>
+
+<p>但它最核心的地方在于 <code>多轮对话管理模块</code>.</p>
+
+<p>然而这个定义似乎不容易被人理解.
+在和人介绍这个项目的过程中, 许多没接触过对话机器人的工程师, 都觉得对话管理很容易实现,
+或者说不重要, 不算 &ldquo;从零到一&rdquo;. 或者觉得工程框架 &ldquo;谁都能做出来, 无非就是&hellip;&rdquo;</p>
+
+<p>对待这类观点, 我目前只能说, 自己最初并没考虑开发一个对话机器人框架,
+而是需要这样的框架让我可以开发各种设想的应用.
+然而调研了市面上许多解决方案,
+却没有发现一款满足需求的, 所以才有了自己开发的 CommuneChatbot.</p>
+
+<p>这个项目在工程上花了许多心思, 大小技术细节有上百个, 但工程上的东西另搞一套都很容易,
+算不得从零到一.
+但项目核心方案的设计过程, 对我而言是一个从零到一的技术突破, 是完全原创, 没有任何借鉴对象的. 因此想用这篇文章记录下来.</p>
+
+<p>至于正确与否, 行业未来的发展会给出一个明确的论断. 我此时的观点仅供参考.</p>
+
+<h3 id="communechatbot-接下来的计划">CommuneChatbot 接下来的计划</h3>
+
+<p><a href="https://github.com/thirdgerb/chatbot">CommuneChatbot</a> 项目目前上线了demo, 在同名公众号测试. 正在开发它的第一个正式版 ( v0.1 ). 目标是有完整的说明文档, 并在生产环境中可用, 有具体的应用示例.</p>
+
+<p>目前正在考虑开发的功能:</p>
+
+<ul>
+<li>使用一款和 swoole 协程IO 结合得更好的框架作为开发平台</li>
+<li>为初步使用者, 提供一个基本可用的后台</li>
+<li>除rasa外, 接入国内的 NLU 服务商, 例如百度UNIT, 讯飞等</li>
+<li>接入一款智能音箱平台, 如小度, 小爱同学, 天猫精灵</li>
+<li>整合到树莓派开源智能音箱, 作为语音OS的中枢.</li>
+</ul>
+
+<p>目前的应用设想有:</p>
+
+<ul>
+<li>vbot : 提供微信机器人的开发功能</li>
+<li>智能音箱应用 : 开发基于复杂多轮对话的智能音箱应用</li>
+<li>FAQ : 能接入各种IM, 语音平台的 FAQ, 有完整多轮对话流程和管理后台</li>
+<li>知识图谱Wiki : 基于知识图谱, 在多轮对话中编辑和查找内容的wiki</li>
+</ul>
+
+<p>如果有意见与建议, 请不吝赐教. 邮箱 thirdgerb@gmail.com</p>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-md-8">
+            
+              <div class="mb-5">
+                
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="https://thirdgerb.github.io/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+      <li><a href="https://thirdgerb.github.io/tags/commune-chatbot" role="button">commune-chatbot </a></li>
+      
+    
+      <li><a href="https://thirdgerb.github.io/tags/%E5%A4%9A%E8%BD%AE%E5%AF%B9%E8%AF%9D" role="button">多轮对话 </a></li>
+      
+    
+  </div>
+</div>
+              </div>
+            
+            </div>
+            
+          </div>
+          
+
+          
+          <div class="row pt-3">
+            <div class="col-md-6">
+              
+                <a href=https://thirdgerb.github.io/posts/2019-07/conversation-features/ class="post-meta">Previous
+                  <div class="pt-2 pb-5 d-flex">
+                    <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+                    <span>对话机器人的关键功能点(一) : N阶多轮对话的分形结构</span>
+                  </div>
+                </a>
+              
+            </div>
+            
+            <div class="col-md-6 text-right" >
+              
+            </div>
+          </div>
+
+          
+
+        </div>
+        
+        <div>
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "thirdgerb" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+
+
+      </div>
+      
+
+      
+	
+	
+	
+	
+		
+		
+		
+	
+
+		
+		<div class="col-md-2 pl-0">
+
+			
+			<div id="page-scrollspy" class="toc-nav">
+				
+				<ul class="nav nav-pills ml-0">
+					
+					<li class="nav-item pb-3 text-center">
+						<span class="font-weight-bold mb-2">- CATALOG - </span>
+					</li>
+
+					
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e8%ae%a4%e8%af%86%e5%a4%8d%e6%9d%82%e5%a4%9a%e8%bd%ae%e5%af%b9%e8%af%9d%e4%ba%a4%e4%ba%92">
+												 认识复杂多轮对话交互
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e4%bb%8e%e4%ba%a4%e4%ba%92%e8%a7%92%e5%ba%a6%e7%9c%8b%e5%af%b9%e8%af%9d%e6%9c%ba%e5%99%a8%e4%ba%ba">
+												 从交互角度看对话机器人
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%af%b9%e8%af%9dos%e5%8f%af%e8%83%bd%e5%b8%a6%e6%9d%a5%e4%b8%80%e5%9c%ba%e4%ba%a4%e4%ba%92%e9%9d%a9%e5%91%bd">
+												 对话OS可能带来一场交互革命
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e8%b6%b3%e5%a4%9f-%e8%81%aa%e6%98%8e-%e7%9a%84nlp%e6%8a%80%e6%9c%af%e5%b9%b6%e9%9d%9e-%e5%af%b9%e8%af%9dos-%e6%89%80%e5%bf%85%e8%a6%81">
+												 足够 “聪明” 的NLP技术并非 “对话OS” 所必要
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%a4%9a%e8%bd%ae%e5%af%b9%e8%af%9d%e7%ae%a1%e7%90%86-%e6%88%96%e6%98%af-%e5%af%b9%e8%af%9dos-%e7%9b%ae%e5%89%8d%e7%9a%84%e7%9f%ad%e6%9d%bf">
+												 “多轮对话管理” 或是 “对话OS” 目前的短板
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%b7%a5%e7%a8%8b%e5%8c%96-%e7%ad%96%e7%95%a5%e5%af%b9-%e5%af%b9%e8%af%9dos-%e6%98%af%e5%8f%af%e8%a1%8c%e7%9a%84">
+												 “工程化” 策略对 “对话OS” 是可行的
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%a4%8d%e6%9d%82%e5%a4%9a%e8%bd%ae%e5%af%b9%e8%af%9d%e6%9c%ba%e5%99%a8%e4%ba%ba%e7%9a%84%e5%8a%9f%e8%83%bd%e7%82%b9">
+												 复杂多轮对话机器人的功能点
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e8%af%ad%e5%a2%83%e5%b5%8c%e5%a5%97-%e8%b7%b3%e8%bd%ac%e4%b8%8e%e9%9a%94%e7%a6%bb">
+												 语境嵌套, 跳转与隔离
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e6%b5%81%e7%a8%8b%e5%88%86%e6%94%af-%e5%be%aa%e7%8e%af-io-%e8%b7%b3%e8%bd%ac-%e5%af%bc%e8%88%aa-%e4%b8%8e%e8%84%b1%e5%87%ba">
+												 流程分支, 循环, IO, 跳转, 导航, 与脱出
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e8%af%ad%e5%a2%83%e8%bf%87%e6%bb%a4%e4%b8%8e%e5%9b%9e%e5%bd%92">
+												 语境过滤与回归
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e6%9c%89%e4%bd%9c%e7%94%a8%e5%9f%9f%e7%9a%84%e4%b8%8a%e4%b8%8b%e6%96%87%e8%ae%b0%e5%bf%86">
+												 有作用域的上下文记忆
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e4%bb%bb%e5%8a%a1%e6%9a%82%e5%81%9c-%e6%8c%82%e8%b5%b7%e4%b8%8e%e5%94%a4%e9%86%92">
+												 任务暂停, 挂起与唤醒
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%85%b6%e5%ae%83%e5%b7%a5%e7%a8%8b%e5%8c%96%e7%9a%84%e5%a5%bd%e5%a4%84">
+												 其它工程化的好处
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%90%8e%e8%af%9d">
+												 后话
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#%e5%86%99%e6%96%87%e6%9c%ac%e7%9a%84%e5%8a%a8%e6%9c%ba">
+												 写文本的动机
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#communechatbot-%e6%8e%a5%e4%b8%8b%e6%9d%a5%e7%9a%84%e8%ae%a1%e5%88%92">
+												 CommuneChatbot 接下来的计划
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+
+				</ul>
+			</div>
+			
+
+		</div>
+		
+	
+
+    </div>
+    
+
+
+  </main>
+  
+
+
+    
+    
+
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+
+  
+  <div class="pb-2 mt-5 pt-5">
+    
+      <a href="https://github.com/thirdgerb " target="_blank" rel="noopener"><i class="fab fa-github mr-3" aria-hidden="true"></i></a>    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+        <a href="mailto:thirdgerb@gmail.com"><i class="far fa-envelope-open mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+  </div>
+  
+
+  
+  <div class="copyright py-4">
+    
+    <span>  2016 - 2019 &copy; | Theme <a href='https://github.com/orianna-zzo/AllinOne' target="_blank">AllinOne</a> by <a href='https://github.com/orianna-zzo' target="_blank">Orianna</a>  </span>
+  </div>
+  
+
+</footer>
+
+
+    
+
+
+
+
+
+
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors/popper.min.js"></script>
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors/holder.min.js"></script>
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors-extensions/bootstrap4/bootstrap.js" ></script>
+
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors/mdb/mdb.min.js"></script>
+
+<script type="text/javascript" src="https://thirdgerb.github.io/js/main.js"></script>
+
+
+
+  
+  <script src="https://thirdgerb.github.io/js/vendors/highlight.pack.js"> </script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-81035041-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script type="text/javascript">
+  
+  new WOW().init();
+</script>
+
+
+
+
+  </body>
+</html>

@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 22 Jul 2019 21:08:32 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 19 Aug 2019 12:44:20 +0800</lastBuildDate>
     
 	<atom:link href="https://thirdgerb.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>对话OS的前景与复杂多轮对话的关键功能点</title>
+      <link>https://thirdgerb.github.io/posts/2019-08/multi-turn-conversation-bot-features/</link>
+      <pubDate>Mon, 19 Aug 2019 12:44:20 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2019-08/multi-turn-conversation-bot-features/</guid>
+      <description>本文作者基于个人兴趣开发了一个工程化的多轮对话机器人框架(CommuneChatbot). 这篇文章用来记录自己对多轮对话机器人问题的部分认识和思考. 由于见识有限, 仅供参考, 欢迎批评指教. 本文将讨论以下三个问题: 对话OS(主要基于语音的操作系统)是对话机器人的未来方向之一, 或将领衔下一轮的交互革命 复杂多轮对话问题是现阶段对话机器人短板, 关键在于定义哪些功能点 ( features ) 从对话OS角度看, 并非只有机器学习一</description>
+    </item>
     
     <item>
       <title>对话机器人的关键功能点(一) : N阶多轮对话的分形结构</title>
