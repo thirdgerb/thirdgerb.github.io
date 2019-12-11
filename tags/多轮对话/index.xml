@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 19 Aug 2019 12:44:20 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 11 Dec 2019 18:52:09 +0800</lastBuildDate>
     
 	<atom:link href="https://thirdgerb.github.io/tags/%E5%A4%9A%E8%BD%AE%E5%AF%B9%E8%AF%9D/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>对话式视频应用展望</title>
+      <link>https://thirdgerb.github.io/posts/2019-12/conversational-video-app/</link>
+      <pubDate>Wed, 11 Dec 2019 18:52:09 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2019-12/conversational-video-app/</guid>
+      <description>本文将讨论一种新应用，&amp;rdquo;对话式-视频-应用&amp;rdquo; (conversational-video-application, 后文简称 &amp;ldquo;CVA&amp;rdquo;) )的设想，文章将包含以下方面: 概述 核心思路 技术实现 商业化应用场景 治理隐患 1. 概述 &amp;ldquo;对话式-视频-应用&amp;rdquo; 是 &amp;ldquo;视频&amp;rdquo;，&amp;rdquo;对话系统&amp;rdquo; 两者的结合，核心是 &amp;ldquo;对话&amp;rdquo;。 这是基于现有的对话技术，设想的一种面向用户（2c）的，偏向社交的应用。 简</description>
+    </item>
     
     <item>
       <title>对话OS的前景与复杂多轮对话的关键功能点</title>

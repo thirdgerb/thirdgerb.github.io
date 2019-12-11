@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
+  <meta name="author" content="烈风">
+  <meta name="description" content="您好! 这是一封求职信. 我叫朱明, 是一名服务端工程师. 今年(19年) 4月开始, 离开公司, 独立开发了一个多轮对话机器人框架 CommuneChatbot. 想向贵公司对话系统或应用开发领域求职, 并且推荐 CommuneChatbot 这个作品. 项目简介 CommuneChatbot 是一个开源的多轮对话机器人框架, 能够在服务端分布式部署, 对接各种通信平台 (目前已对接微信公众号, DuerOS, 并有自己的 Web 版 ), 整合第三方的 NLU 资源, 以实现多轮对话机器人. 本项目有各种细致的工程设计, 它最大的优势在于实现了工程化">
+  
+  <meta property="og:title" content="Temp" />
+<meta property="og:description" content="您好! 这是一封求职信. 我叫朱明, 是一名服务端工程师. 今年(19年) 4月开始, 离开公司, 独立开发了一个多轮对话机器人框架 CommuneChatbot. 想向贵公司对话系统或应用开发领域求职, 并且推荐 CommuneChatbot 这个作品. 项目简介 CommuneChatbot 是一个开源的多轮对话机器人框架, 能够在服务端分布式部署, 对接各种通信平台 (目前已对接微信公众号, DuerOS, 并有自己的 Web 版 ), 整合第三方的 NLU 资源, 以实现多轮对话机器人. 本项目有各种细致的工程设计, 它最大的优势在于实现了工程化" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thirdgerb.github.io/posts/2019-08/temp/" />
+<meta property="article:published_time" content="2019-09-26T23:06:47&#43;08:00"/>
+<meta property="article:modified_time" content="2019-09-26T23:06:47&#43;08:00"/>
+
+
+  <title>
+  
+       Temp | 烈风&#39;s Blog 
+  
+  </title>
+
+  <link rel="canonical" href="https://thirdgerb.github.io/posts/2019-08/temp/">
+
+  
+  
+
+  
+  <link href="https://thirdgerb.github.io/css/vendors-extensions/fontawesome/all.min.css" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600">
+  <link href="https://thirdgerb.github.io/css/font.css" rel="stylesheet"> 
+    
+  
+  <link href="https://thirdgerb.github.io/css/vendors/bootstrap4/bootstrap.min.css" rel="stylesheet">
+  <link href="https://thirdgerb.github.io/css/vendors-extensions/mdb/mdb.min.css" rel="stylesheet"> 
+  <link href="https://thirdgerb.github.io/css/vendors/mdb/style.min.css" rel="stylesheet"> 
+  <link href="https://thirdgerb.github.io/css/main.css" rel="stylesheet">
+
+
+  
+  <link rel="shortcut icon"
+  
+      href="https://thirdgerb.github.io/avatar.jpg"
+  
+  >
+
+
+  
+  
+
+  <style type="text/css">
+      @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1C2331!important;
+              }
+          }
+  </style>
+
+
+  
+  
+  
+
+  
+    
+    <link rel="stylesheet" href="https://thirdgerb.github.io/css/vendors/highlight/github-gist.css">
+  
+
+</head>
+
+  <body class="bg-light" data-spy="scroll" data-target="#page-scrollspy" data-offset="90">
+  
+    
+    
+
+    
+      
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      
+      
+      <a class="navbar-brand" href="https://thirdgerb.github.io/">
+          
+        <strong> Commune</strong>
+      </a>
+      
+
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item ">
+            <a class="nav-link" href="https://thirdgerb.github.io/">Home</a>
+          </li>
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://thirdgerb.github.io/posts/" >Posts  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://thirdgerb.github.io/about/" >About  </a>
+            </li>
+          
+          
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  
+ 
+      
+ 
+
+
+
+
+
+
+<div id="site-header" class="carousel slide carousel-fade" data-ride="carousel" style="height: 18rem;" >  
+
+  
+  
+  
+
+  
+  <div class="carousel-inner" role="listbox">
+    
+      
+
+        
+        <div class="carousel-item active">
+          <div class="view" style="background-image: url('https://thirdgerb.github.io/img/header-slides/raw_1515691746.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+              
+              
+              
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+      
+
+        
+        <div class="carousel-item">
+          <div class="view" style="background-image: url('https://thirdgerb.github.io/img/header-slides//raw_1515847341.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+
+  
+  </div>
+  
+
+  
+  <div class="carousel-content text-center white-text wow fadeIn">
+    <div class="row mx-0 headfont mt-3 pt-4">
+      
+      <div class="col-12 col-sm-5 align-middle">
+        <a href="https://thirdgerb.github.io/">
+          
+            <img class="pull-right avatar avatar-md" src="https://thirdgerb.github.io/avatar.jpg" alt="" >
+          
+        </a>
+      </div>
+      
+      <div class="col-12 col-sm-7 text-left pl-2">
+        <a href="https://thirdgerb.github.io/">
+          <h1 class="mb-2 h1" style="font-weight: 300;" >
+            <strong>烈风&#39;s Blog</strong>
+          </h1>
+        </a>
+        
+
+             
+        <div class="mt-2" style="font-size: 1rem; color: white;">
+            
+              <a href="https://github.com/thirdgerb" target="_blank" rel="noopener"><i class="fab fa-github pr-1" aria-hidden="true"></i></a>    
+            
+            
+
+            
+
+            
+
+            
+
+            
+    
+            
+    
+        
+            
+                <a href="mailto:thirdgerb@gmail.com"><i class="far fa-envelope-open pr-1" aria-hidden="true"></i></a>
+            
+    
+            
+
+            
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  
+
+</div>
+  
+    
+
+    
+  
+  <main class="container">
+    
+    
+    <div class="row">
+
+      
+
+      
+      <div class="container">
+      
+
+        
+        <div class="z-depth-1  post-wrapper white-bg single-post">
+
+          <div class="post-header text-center" >
+  <ul class="post-meta li-x">
+    
+    
+  </ul>
+
+  <div class="px-4 post-heading">Temp</div>
+
+  <ul class="post-meta li-x mt-1">
+    
+      <li>Sep 26, 2019</li>
+    
+
+    
+      <li class="middot"></li>
+      <li>15 minutes read</li>
+    
+  </ul>
+  
+
+</div>
+
+
+          <div class="post-content markdown">
+            
+
+<p>您好!</p>
+
+<p>这是一封求职信. 我叫朱明, 是一名服务端工程师. 今年(19年) 4月开始, 离开公司, 独立开发了一个多轮对话机器人框架 CommuneChatbot. 想向贵公司对话系统或应用开发领域求职, 并且推荐 CommuneChatbot 这个作品.</p>
+
+<h1 id="项目简介">项目简介</h1>
+
+<p>CommuneChatbot 是一个开源的多轮对话机器人框架, 能够在服务端分布式部署, 对接各种通信平台 (目前已对接微信公众号, DuerOS, 并有自己的 Web 版 ), 整合第三方的 NLU 资源, 以实现多轮对话机器人.</p>
+
+<p>本项目有各种细致的工程设计, 它最大的优势在于实现了工程化的复杂多轮对话管理. 对标各种主流的开源对话机器人项目, 如微软的 botkit, github 的 hubot, botman; 以及各种商业化的多轮对话机器人平台, CommuneChatbot 在对话管理领域都或有其优势所在.</p>
+
+<h1 id="demo">Demo</h1>
+
+<p>项目目前正在 beta 版本开发, 撰写开发文档中. 官方网站为 <a href="https://communechatbot.com">https://communechatbot.com</a> , 这本身是一个 &ldquo;对话 + web 双相操作&rdquo; (双模态?) 的示例, 点击和对话能共同作用于应用, 点击右上角的 &ldquo;&lt;&gt;&rdquo; 图标还可以查看随对话切换的源代码.</p>
+
+<p>微信版的 Demo 在微信公众号 CommuneChatbot. 百度音箱的 Demo 在技能 &ldquo;三国群英传&rdquo; (暂时只能用无屏音箱打开).</p>
+
+<p>&ldquo;三国群英传&rdquo; 是一个情景游戏的 Demo, 完全通过这个 <a href="https://github.com/thirdgerb/chatbot/blob/master/src/Components/Story/resources/stories/changbanpo.yml">配置文件</a> 生成, 背后是基于 CommuneChatbot 开发的一个组件化的情景游戏引擎.</p>
+
+<p>这三端的 Demo 其实是同一个对话机器人, 只是做了不同端的适配. Web 上有完整的功能.</p>
+
+<p>DuerOS 的版本使用了百度的意图识别, 其它两个 Demo 使用 Rasa NLU 作为语义理解单元, 大概为数十个意图训练了小三百条语料, 作为示例.</p>
+
+<h1 id="本文内容">本文内容</h1>
+
+<p>本文将着重介绍 CommuneChatbot 项目在复杂多轮对话领域所实现的能力. 主要有三个目标:</p>
+
+<p>1 介绍项目所实现的 &ldquo;复杂多轮对话&rdquo; 的设计理论, 解决的问题, 和基本的工程模型</p>
+
+<p>2 介绍项目自身的特点, 该项目对贵公司业务可能有的价值</p>
+
+<p>3 证明本人是一名拥有极客精神, 经验丰富, 善于创新并能执行, 在对话领域有热情与想法, 且拥有丰富工程经验的工程师. 在对话系统领域或能作出有益贡献.</p>
+
+<h1 id="复杂多轮对话问题">复杂多轮对话问题</h1>
+
+<h2 id="0-一阶多轮对话与n阶多轮对话">0. 一阶多轮对话与N阶多轮对话</h2>
+
+<p>若干个单轮对话构成一个多轮对话, 如果它的流程是线性的, 我这里将之称为一阶多轮对话. 目前大多数多轮对话机器人 (技能), 实现的都是一阶对话: 完成填槽, 执行任务, 给予反馈, 退出.</p>
+
+<p>即便这种对话有一万轮, 仍然是一阶的. 所以技能前后相衔的解决方案, 实现的还是广义的一阶对话.</p>
+
+<p>现实中的多轮交互是图状的, 而且呈现分形几何式的无限嵌套. 一个 X 步的对话, 第 N 步可能根据条件指向 M 种多轮对话, 于是产生了树状的分支. 而每一个分支走完的结果, 又决定主干下一步的方向, 从而形成了一个图状的路径.</p>
+
+<p>是否满足于线性交互, 还是要实现图状并分形嵌套的多轮交互, 是一切讨论的起点. 如果对话系统停留在简单应答的智能客服, 或闲聊机器人, 一阶对话勉强能满足大部分场景.</p>
+
+<p>一旦对话系统走入 对话OS 方向, 它对标的就是桌面, 浏览器等各种成熟的 &ldquo;多轮交互&rdquo; 系统, 便不能满足于一阶对话.</p>
+
+<p>本人正是因为想用对话形式开发应用, 但发现市面上没有任何解决方案可以实现多轮交互的目标, 才开始构思 CommuneChatbot 项目.</p>
+
+<p>本项目的理论基础是, &ldquo;对话&rdquo; 将发展为人机交互的一种形式, &ldquo;多轮对话&rdquo; 本质上是 &ldquo;多轮交互&rdquo;; 和窗口交互, 浏览器交互, 命令行交互, 触屏交互一样, 要实现 &ldquo;多轮交互&rdquo; 最基本的 features.</p>
+
+<p>而一个工程化的多轮对话机器人, 本质上就是用 图灵完备 的计算机语言完成对复杂人机交互的定义, 这在其它的领域都很成熟, 而在对话系统中是尚不成熟的. 基于这样的理论, 我设计了一套多轮对话的工程模型, 并开发了 CommuneChatbot 的对话管理内核.</p>
+
+<h2 id="1-对话管理的工程化方案">1. 对话管理的工程化方案</h2>
+
+<p>本人常遇到一种观点, 认为对话管理的目标是机器学习, 而工程化的方案虽然有冷启动, 快速可测, 可迭代, 组件化等种种优势; 但仍被认为是次要的, 将会被机器学习的对话管理取代, 不值得投入太多精力.</p>
+
+<p>以本人目前的认识, 对此观点仍有不同意见. 在语料非常丰富的人工客服转智能客服等领域, 机器学习有较大优势. 但它本质上仍是一元变量的多轮对话, 只有一个角色 (用户) 的输入将决定对话的各种走向.</p>
+
+<p>而在真实的业务中, 应答方可能要处理成百上千种状态, 决定每一轮对话的走向. 并不是一元, 而是二元 (服务端状态) 甚至 N 元 (服务端, 第三方, 异步任务等).</p>
+
+<p>这意味着 &ldquo;机器学习对话管理模型&rdquo; 的输入信息, 不仅是 &ldquo;用户&rdquo; 一方的 &ldquo;query&rdquo; , 还应该包括 N 种维度的状态. 这可能是未来智能机器人的目标, 却不符合当前多轮对话管理的主流方案.</p>
+
+<p>而且语料的生产也有人工成本, 比如 rasa core 冷启动依赖人手写对话. 要生产覆盖 N 元状态的语料也是一件难以想象的事情, 但对工程手段而言很容易实现.</p>
+
+<p>进一步的, 现实中的对话往往是异步的. 例如 &ldquo;您点的菜等下送过来, 请问您还有什么需求?&hellip;. 稍等, 您点的菜已经来了, 请&hellip; ; 让我们继续刚才的话题吧&rdquo;. 这个例子就出现了 &ldquo;异步&rdquo; 与 &ldquo;抢占&rdquo; 等逻辑. 又比如用对话来操作一个探索机器人, 语境的切换就完全是机器人所在场景主导了.</p>
+
+<p>我并不了解现有机器学习的手段, 会怎么用纯学习的办法, 解决这些复杂多轮交互的常见问题.</p>
+
+<p>类似 &ldquo;多元参数&rdquo;, &ldquo;异步&rdquo;, &ldquo;抢占&rdquo;, &ldquo;挂起&rdquo;, &ldquo;多任务调度&rdquo; 等各种 features, 对于一个应答型的智能客服可能并非必须, 但对于 对话OS 而言, 是能走到哪种生产领域的决定性问题之一.</p>
+
+<p>所以以本人目前的认识, 工程方案并非歧路, 而是让 NLU 等 AI 资源在具体业务中快速落地的有效方案. 甚至能反哺 AI 技术的发展.</p>
+
+<h2 id="2-半开放域语境">2. 半开放域语境</h2>
+
+<p>现阶段大多数多轮对话机器人, 采用的是 &ldquo;技能&rdquo; 的设计思路. 简单来说有两个关键环节, 意图匹配环节, 和填槽多轮对话环节.</p>
+
+<p>对于意图匹配而言, 是一个完全开放域的, 可以匹配所有可能的意图; 而对于填槽而言, 是一个完全封闭域的, 只能提供填槽的答案. 而现实中的多轮对话, 任何一个环节都可能匹配不一样的意图, 而且会产生临时中断, 调走等各种需求.</p>
+
+<p>简单而言, 每一轮对话都有一个上下文语境, 有自己允许匹配的意图, 而不识别的意图理应 &ldquo;拒答&rdquo;, 所以是半开放域的.</p>
+
+<p>基于 &ldquo;技能&rdquo; 的方案, 解决半开放域问题, 往往会有一个中控环节, 负责匹配意图, 调度给不同的技能去落实. 这会衍生出一系列复杂的实现 :</p>
+
+<ul>
+<li>意图匹配技能的排序</li>
+<li>中控与技能功能的耦合</li>
+<li>切换发生时, 是否放弃技能原有的流程</li>
+</ul>
+
+<p>更重要的是, 现实中的多轮对话, 几乎每一轮都是一个半开放域节点, 每一轮都有不同的 &ldquo;中控&rdquo; 逻辑, 所以是分形几何的结构. 从这个角度看, 中控 + 技能 实现的是 1.5 阶的对话调度.</p>
+
+<p>CommuneChatbot 的方案, 是定义了 &ldquo;语境&rdquo; 的实体, 每一个单轮对话节点, 在代码中都拥有独立的单元, 都相当于一个独立的技能.</p>
+
+<p>这样的单元构成了以下的几种对话结构:</p>
+
+<ul>
+<li>stage : 单轮节点</li>
+<li>context : 一阶多轮</li>
+<li>thread : 相互依赖的 N 个多轮</li>
+<li>process : 管理多个不相互依赖的 thread</li>
+<li>breakpoint : 管理一组 process 的快照</li>
+<li>history : 管理多个 process 的调度</li>
+<li>session : 管理一个用户的所有上下文信息.</li>
+</ul>
+
+<h2 id="3-语境切换-回归-脱出-拦截-上下文记忆">3. 语境切换, 回归, 脱出, 拦截, 上下文记忆</h2>
+
+<p>有了半开放域语境的定义, 就要能够从一个语境, 切换到另一个语境.</p>
+
+<h2 id="回归">回归</h2>
+
+<p>切换本身看似容易, 真正的难点在于回归. 从多轮对话 A 跳到 多轮对话B , 当 B 结束流程时, 至少有两种正常回归方式:</p>
+
+<ul>
+<li>无关回归 : A 流程被挂起了, B 流程插入进来 (&ldquo;等等, 我先问个&hellip;事&rdquo;), B结束后, 要继续 A 的流程.</li>
+<li>依赖回归 : A 流程本身依赖 B 流程的结果, 例如 B流程是了解用户身份信息, 结束后要根据 B 选择下一步.</li>
+</ul>
+
+<p>A 流程要根据切换的类型, 选择响应的类型.</p>
+
+<h2 id="脱出">脱出</h2>
+
+<p>进一步的, 还有不正常的回归. 比如用户或服务方想跳出当前流程 (escape context, 这里称之为 &ldquo;语境脱出&rdquo;).</p>
+
+<p>在 CommuneChatbot 中定义了三种异常回归, cancel (用户取消), reject (服务端拒绝), failure (异常).</p>
+
+<p>很显然, 每种回归都可能对应独特的回应 (似乎出错了, 好的已取消, 您没有权限) , 以及独特的下一步 (再试一次, 问别的选择, 放弃任务).</p>
+
+<h2 id="拦截">拦截</h2>
+
+<p>目前的 &ldquo;技能&rdquo; 也好, 机器学习也好, 往往都用统一的 handler 来处理某一种异常脱出. 但现实种还会有更复杂的问题, 比如一个 20轮的多轮对话, 第18轮产生了脱出, 是跳回第10轮 还是跳回第8轮? 第13轮的节点能否自己判断异常向上冒泡, 还是自己去拦截呢?</p>
+
+<p>这就非常像编程语言的 try catch</p>
+
+<h2 id="上下文记忆">上下文记忆</h2>
+
+<p>既然 N 阶多轮对话可能出现依赖关系, 就会产生上下文记忆问题, 问过一次的内容不需要向用户问第二次. 大多数现有对话机器人, 都是采取 &ldquo;session&rdquo; 级的记忆, 和完全放任的业务逻辑记忆去处理.</p>
+
+<p>现实中的多轮对话, 记忆是有明显的 &ldquo;作用域&rdquo; (scope) 的. 例如任务 A 和 任务 B 都依赖 &ldquo;学生&rdquo; 这个实体, 通过询问用户了解 &ldquo;学生&rdquo; 的信息, 指的是不同的人. 如果从 A 切换到 B , 再从 B 切换回 A, &ldquo;学生&rdquo;的信息被忘记了, 或者记错了, 就是很大的麻烦.</p>
+
+<p>所以多轮对话生产出来的 &ldquo;记忆&rdquo;, 又有明显的作用域问题.</p>
+
+<h2 id="communechatbot-的思路">CommuneChatbot 的思路</h2>
+
+<p>如果把多轮对话开发理解成计算机语言编程, 上述问题的原理就变得很清晰了.</p>
+
+<p>每个单轮对话相当于一个 function 节点, 它有自己的参数, 有 if else 或者 loop 的逻辑 (语境隔离).</p>
+
+<p>每个 function 都能按逻辑允许, 调用其它的 function (语境嵌套, 切换). 可以通过 线程, 协程等各种机制让出控制权.</p>
+
+<p>每个 function 可以依赖别的 function 的 return, 可以不依赖</p>
+
+<p>每个 function 都依赖一些变量, 而每个变量都有自己的作用域 (全局, 局部), 相互不冲突.</p>
+
+<p>function 的调用链通常用编程语言的 &ldquo;栈&rdquo;, 一种很成熟的工程方案去实现. 在栈的基础上进一步实现 exception, try catch 等高级特性 ( 语境脱出, 拦截 )</p>
+
+<p>开发 CommuneChatbot 的过程, 越来越觉得像用编程语言实现了一门编程语言, 实现了 function, return, 静态非静态, try catch, 栈, 甚至还有垃圾回收等一系列 feature.</p>
+
+<p>只不过对话系统有其独特的技术难点 :</p>
+
+<ol>
+<li>流程阻塞 : 如果把单轮对话视作 function 栈, 入参要依赖用户的输入</li>
+<li>状态分布式一致性 : 状态不是存在内存中, 而是在分布式系统中, 要能在任何一个单点上还原并保持一致.</li>
+</ol>
+
+<p>由此衍生出更多复杂的工程实现问题.</p>
+
+<h2 id="4-面向输入抽象-与面向能力抽象">4. 面向输入抽象, 与面向能力抽象</h2>
+
+<p>目前主流 &ldquo;技能 + 意图&rdquo; 的对话管理方案, 普遍采取的事件机制. 每一个意图视作一个事件, 用于触发一个 handler 来执行逻辑.</p>
+
+<p>如果考虑半开放域语境切换为前提, 本地要维护上下文的变化, 这种事件机制就成了工程上典型的 N * M 问题.</p>
+
+<p>有 N 种意图, M 种语境, 最多要在 handler 里写 N * M 种 if else 逻辑. 其中很可能对于具体的 k 能力而言, 有 t 种意图都能命中, 却都要写逻辑. 这也是为什么 &ldquo;技能&rdquo; 的方案对于 &ldquo;对话OS&rdquo; 而言不够成熟的原因.</p>
+
+<p>CommuneChatbot 在工程范式上花了很多心思, 定义一个单轮对话时, 是面向能力的. 例如这段代码:</p>
+
+<pre><code>$hearing = $hearing
+    // 菜单
+    -&gt;todo($this-&gt;goMenu())
+        -&gt;is($commands-&gt;menu)
+        -&gt;soundLike($commands-&gt;menu)
+        -&gt;isIntent(MenuInt::class)
+
+    // 退出
+    -&gt;todo(Redirector::goFulfill())
+        -&gt;is($commands-&gt;quit)
+        -&gt;soundLike($commands-&gt;quit)
+        -&gt;isIntent(QuitGameInt::class)
+
+    // 选择章节
+    -&gt;todo($this-&gt;todoChooseEpisode())
+        -&gt;is($commands-&gt;chooseEpisode)
+        -&gt;soundLike($commands-&gt;chooseEpisode)
+        -&gt;isIntent(ChooseEpisodeInt::class)
+
+    // 返回游戏
+    -&gt;todo($this-&gt;todoReturnGame())
+        -&gt;is($commands-&gt;returnGame)
+        -&gt;soundLike($commands-&gt;returnGame)
+        -&gt;isIntent(ReturnGameInt::class)
+
+    // 帮助
+    -&gt;todo($this-&gt;todoDescription())
+        -&gt;is($commands-&gt;help)
+        -&gt;soundLike($commands-&gt;help)
+        -&gt;onHelp()
+
+    -&gt;otherwise();
+</code></pre>
+
+<p>都是用 -&gt;todo 方法定义当前语境下的能力, 再倒过来定义可能匹配它的条件. 匹配条件可以是 nlu 的意图识别, 可以是单纯算法, 可以是别的信号, 条件本身是多元的.</p>
+
+<p>关键点在于:  对能力的抽象高于对输入的抽象.</p>
+
+<p>再往未来看, &ldquo;自然语言&rdquo; 是人类提供复杂信息最有效的方式, 但不是人类提供简单信息, 或是获取复杂信息最有效的方式. 这意味着未来的人机交互一定是多模态的, 语音 + 肢体 + 键盘 + 触屏等各种先进的交互形式一起作用.</p>
+
+<p>这样 &ldquo;多轮对话管理&rdquo; 就变成了 &ldquo;多轮交互中控&rdquo;, 对于机器学习的方案, 必须把任何模态的输入高度抽象为意图, 从而解藕 &ldquo;自然语言&rdquo; 与 &ldquo;对话管理&rdquo; 的关系, 开发有关能力抽象, 无关语言的输入层. 这样就和 CommuneChatbot 这类基于工程手段实现的 &ldquo;多轮交互管理&rdquo; 思路殊途同归了.</p>
+
+<h2 id="5-对话系统更多高级特性">5. 对话系统更多高级特性</h2>
+
+<p>本人遇到多次, 有人认为对话机器人最重要的就是语义识别, 这一块是最重要的, 而别的环节似乎随便可以实现.</p>
+
+<p>就个人理解而言, 对话系统的 输入解析 (例如语音解析), 语义解析, 对话管理, 输出合成 等各个关键模块都很重要, 都决定一个对话机器人是否 &ldquo;聪明&rdquo;.</p>
+
+<p>当对话系统从拟人的智能机器人, 走向 对话OS 这样的人机交互界面, 就必须对标所有业已成熟的多轮交互界面. 除了上述的内容之外, 未来还有 &ldquo;多任务调度&rdquo;, &ldquo;任务挂起&rdquo;, &ldquo;任务切换&rdquo;, &ldquo;异步响应&rdquo;, &ldquo;抢占&rdquo; 等一系列的高级特性.</p>
+
+<p>而且传统工程层面上的考虑, 并非无足轻重. 一个全栈式的架构, 快速可迭代, 分布式一致性, 弹性扩容, 高可用, 全平台适配等一系列因素都决定一个系统的适用领域.</p>
+
+<p>最后开发的效率, 工程的可读性, 可迭代性, 组件化, 配置化, 可视化等等, 以至于 api 接口的设计, 配置文档的设计, 都很重要.</p>
+
+<p>CommuneChatbot 虽然还只是一个开发中的项目, 已经开始考虑以上的各种问题, 这些方面花费的心血即便眼下得不到对等的重视, 但我认为还是与这个行业未来方向一致的.</p>
+
+<h2 id="6-完全可编程的本地对话管理系统">6. 完全可编程的本地对话管理系统</h2>
+
+<p>常有一种偏见, 认为用工程实现的对话机器人是 &ldquo;写死的&rdquo;. 其实编程语言的好处, 在于可以用编程语言的逻辑 实现编程语言逻辑, 形成很多种层次的嵌套.</p>
+
+<p>CommuneChatbot 提供了多轮对话的底层编程策略, 可以在此基础上开发高层的编程逻辑, 用高层决定底层, 因此也是可配置的.</p>
+
+<p>DuerOS 上的情景游戏 &ldquo;大战长板坡&rdquo; 就是一个例子. 它本身就具备了 DuerOS 和 sdk 难以实现的部分功能 (随时唤醒菜单, 返回上一步等等), 更重要的是为这个游戏开发了一个引擎, 从而实现用配置文件去定义多轮对话.</p>
+
+<p>配置文件见: <a href="https://github.com/thirdgerb/chatbot/blob/master/src/Components/Story/resources/stories/changbanpo.yml">https://github.com/thirdgerb/chatbot/blob/master/src/Components/Story/resources/stories/changbanpo.yml</a></p>
+
+<p>进一步的, 这个配置文件本身又是通过一个分布式配置中心抽象层读取的. 这意味着理论上管理员可以在线进行修改逻辑, 实时生效.</p>
+
+<p>情景游戏本身是智能音箱现阶段常见的商用场景. 基于该引擎可以快速开发逻辑相似的游戏, 有助于生态推广. 而所有类似的应用场景, 只要能进行统一的抽象化, 又可以进一步开发其它引擎. 这都是基于底层提供的对话完全可编程的能力.</p>
+
+<p>所以本人认为, 按单一的多轮对话模型, 设计一套配置, 基于配置来开发, 并不比底层完全可编程的方案更灵活. 基于这种思路, CommuneChatbot 设计时就是可编程优先, 而不是配置优先的.</p>
+
+<p>此外, 自然语言识别技术还在逐步发展, 有许多问题不能立刻解决. 例如意图语料容易重复的简单命令, 重复谓词表达肯定意图 (要不要加冰, 加; 要开始吗? 开). 类似的小问题很多, 单纯依赖 NLU 难以实现, 而 NLU 要适应各种情况, 就意味着要和各种业务高度耦合.</p>
+
+<p>而这种种问题, 在完全可编程的本地对话管理中, 往往用很简单的手段就能快速解决.</p>
+
+<p>再考虑到维护的便利性, 多平台的一致性, 本地知识产权等问题, 在商业领域里完全可编程的本地对话系统, 也可能比要调用复杂 api, 反复同步大量状态参数的云端对话管理更有竞争力.</p>
+
+<p>所以本人觉得 CommuneChatbot 这样的工程方案, 在现阶段对于自然语言 AI 资源的推广是有利的, 应该和云端方案齐头并进地发展.</p>
+
+<h1 id="communechatbot-项目的用途">CommuneChatbot 项目的用途</h1>
+
+<p>综上所述, 由于 &ldquo;对话OS&rdquo; 的发展方向, 以及 &ldquo;复杂多轮对话问题&rdquo; 的种种特点, 本人开发了 CommuneChatbot 项目, 作为多轮对话管理的一种工程化尝试.</p>
+
+<p>这个项目目前使用 PHP 进行开发; 它的多轮对话管理理论, 工程模型, 技术实现, 和工程指标都是通用的. 借鉴思路可以开发出 java, python, js, go 的各种同类框架. 只是落实到具体实现上, 会有不同语言的区别.</p>
+
+<p>CommuneChatbot 项目本身目标是工业级可用, 做了很多努力. 但用它来开发多轮对话是很快捷的. 一旦它通过生产环境的检验, 就意味着可以快速应用到各种业务领域中.</p>
+
+<p>类似 &ldquo;可配置化的情景游戏引擎&rdquo; 这样的应用, 既能对内容生产方提高生产效率, 又能为 AI 资源的提供方丰富生态.</p>
+
+<p>除此之外, 就 &ldquo;对话系统&rdquo; 而言, 对话本身就有独特的优势, 包括高度专注, 意图可直达, 全平台一致 (不需要开发客户端), 更容易触达 (比如IM) 等. 而许多对话形式的应用 (问卷调查, 填写信息, 选项式的交互), 并不是特别依赖自然语言 AI 功能.</p>
+
+<p>所以 CommuneChatbot 这样的对话系统, 还可以用于各种生产力领域 :</p>
+
+<ul>
+<li>对话式运维机器人</li>
+<li>IM 内的 shell</li>
+<li>网页游戏</li>
+<li>问卷调查</li>
+<li>机器人设备 (树莓派机器人)</li>
+<li>等等.</li>
+</ul>
+
+<p>希望这个项目的探索是有价值的.</p>
+
+<h1 id="关于本人">关于本人</h1>
+
+<p>我是一名有八年开发经验的服务端工程师. 学生时代已经爱好编程, 由于种种原因没有走上这条道路, 但又因为一些原因中途自学进入这个行业.</p>
+
+<p>长年的开发, 让我掌握了 web 前端全栈 (html + css + js ) 以及服务端开发技术 ( php, java ). 上一家公司是瓜子二手车, 担任大用户端 ( app, 微信, 网站 ) 的核心开发成员. 负责设计技术方案, 跨部门项目开发, 封装底层工具, 提升部门工程质量等工作.</p>
+
+<p>作为一名工程师, 我有强烈的极客精神, 探索欲望, 创新想法和开发热情. 然而服务端开发早已是一个非常成熟的领域, 常常只要 60 分就能令人满意, 而即便开发了 120 分的成果也会被人以为只有 70 分的成绩.</p>
+
+<p>所以我一直希望找到一个新的领域, 能够需要我的创新动力, 对工程能力也有更高的要求, 并且能长期稳定地投入, 积累成绩.</p>
+
+<p>我从15年产生了用对话形式, 开发各种应用的念头. 并且积累了许多创意和方案. 然而一直没有找到能够满足多轮对话需求的开发工具. 18年曾配合 AI, IM, 客服等多个部门, 开发了瓜子二手车的智能客服项目; 在该项目中用到了许多长期积累的关于对话系统的设想 (场景, 双模态交互, 事件调度等).</p>
+
+<p>在 18 年我关于 复杂多轮对话 的理论和工程模型已经基本成熟, 于是 19年决定辞去工作, 专心完成这方面的设想, 制作出一个生产级可用的作品. 既是对这个行业方向做的一番探索, 也是对一名工程师能力和品质的证明.</p>
+
+<p>我相信, 加入贵公司, 除了已有的 CommuneChatbot 项目能带来一定的价值之外, 更重要的是在对话系统领域得到一个有技术热情, 会开创想法, 有应用经验, 有开发能力的工程师.</p>
+
+<p>全文完, 谢谢.</p>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-md-8">
+            
+            </div>
+            
+          </div>
+          
+
+          
+          <div class="row pt-3">
+            <div class="col-md-6">
+              
+                <a href=https://thirdgerb.github.io/posts/2019-08/multi-turn-conversation-bot-features/ class="post-meta">Previous
+                  <div class="pt-2 pb-5 d-flex">
+                    <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+                    <span>对话OS的前景与复杂多轮对话的关键功能点</span>
+                  </div>
+                </a>
+              
+            </div>
+            
+            <div class="col-md-6 text-right" >
+              
+            </div>
+          </div>
+
+          
+
+        </div>
+        
+        <div>
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "thirdgerb" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+
+
+      </div>
+      
+
+      
+
+    </div>
+    
+
+
+  </main>
+  
+
+
+    
+    
+
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+
+  
+  <div class="pb-2 mt-5 pt-5">
+    
+      <a href="https://github.com/thirdgerb " target="_blank" rel="noopener"><i class="fab fa-github mr-3" aria-hidden="true"></i></a>    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+        <a href="mailto:thirdgerb@gmail.com"><i class="far fa-envelope-open mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+  </div>
+  
+
+  
+  <div class="copyright py-4">
+    
+    <span>  2016 - 2019 &copy; | Theme <a href='https://github.com/orianna-zzo/AllinOne' target="_blank">AllinOne</a> by <a href='https://github.com/orianna-zzo' target="_blank">Orianna</a>  </span>
+  </div>
+  
+
+</footer>
+
+
+    
+
+
+
+
+
+
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors/popper.min.js"></script>
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors/holder.min.js"></script>
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors-extensions/bootstrap4/bootstrap.js" ></script>
+
+<script type="text/javascript" src="https://thirdgerb.github.io/js/vendors/mdb/mdb.min.js"></script>
+
+<script type="text/javascript" src="https://thirdgerb.github.io/js/main.js"></script>
+
+
+
+  
+  <script src="https://thirdgerb.github.io/js/vendors/highlight.pack.js"> </script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-81035041-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script type="text/javascript">
+  
+  new WOW().init();
+</script>
+
+
+
+
+  </body>
+</html>
