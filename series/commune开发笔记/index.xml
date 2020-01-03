@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 19 Aug 2019 12:44:20 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jan 2020 15:46:12 +0800</lastBuildDate>
     
 	<atom:link href="https://thirdgerb.github.io/series/commune%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>对话机器人框架 CommuneChatbot 发布 v0.1.0版</title>
+      <link>https://thirdgerb.github.io/posts/2020-01/communechatbot-v01/</link>
+      <pubDate>Fri, 03 Jan 2020 15:46:12 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2020-01/communechatbot-v01/</guid>
+      <description>开源对话机器人开发框架 CommuneChatbot https://github.com/thirdgerb/chatbot 发布 v0.1.0 版了。 1. 项目介绍 &amp;ldquo;Commune&amp;rdquo; 是 &amp;ldquo;亲切交谈&amp;rdquo; 的意思。CommuneChatbot 这个项目则是想通过 “对话” 的形式提供一种人与机器的交互方式。在这个思路中，“对话”不是目的，而是“操作机器”的手段。 简单来说，CommuneChatbot 是一个 : 个人开源项目 开发语言使用 PHP 7.2 可对接语音、即时通讯、公众号、智能音箱等平台，搭建对话机器人 最大特点是 多轮对话管理引擎</description>
+    </item>
+    
+    <item>
+      <title>对话式视频应用展望</title>
+      <link>https://thirdgerb.github.io/posts/2019-12/conversational-video-app/</link>
+      <pubDate>Wed, 11 Dec 2019 18:52:09 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2019-12/conversational-video-app/</guid>
+      <description>本文将讨论一种新应用，&amp;rdquo;对话式-视频-应用&amp;rdquo; (conversational-video-application, 后文简称 &amp;ldquo;CVA&amp;rdquo;) )的设想，文章将包含以下方面: 概述 核心思路 技术实现 商业化应用场景 治理隐患 1. 概述 &amp;ldquo;对话式-视频-应用&amp;rdquo; 是 &amp;ldquo;视频&amp;rdquo;，&amp;rdquo;对话系统&amp;rdquo; 两者的结合，核心是 &amp;ldquo;对话&amp;rdquo;。 这是基于现有的对话技术，设想的一种面向用户（2c）的，偏向社交的应用。 简</description>
+    </item>
     
     <item>
       <title>对话OS的前景与复杂多轮对话的关键功能点</title>

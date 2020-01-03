@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 19 Aug 2019 12:44:20 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jan 2020 15:46:12 +0800</lastBuildDate>
     
 	<atom:link href="https://thirdgerb.github.io/categories/%E5%AF%B9%E8%AF%9D%E6%9C%BA%E5%99%A8%E4%BA%BA/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>对话机器人框架 CommuneChatbot 发布 v0.1.0版</title>
+      <link>https://thirdgerb.github.io/posts/2020-01/communechatbot-v01/</link>
+      <pubDate>Fri, 03 Jan 2020 15:46:12 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2020-01/communechatbot-v01/</guid>
+      <description>开源对话机器人开发框架 CommuneChatbot https://github.com/thirdgerb/chatbot 发布 v0.1.0 版了。 1. 项目介绍 &amp;ldquo;Commune&amp;rdquo; 是 &amp;ldquo;亲切交谈&amp;rdquo; 的意思。CommuneChatbot 这个项目则是想通过 “对话” 的形式提供一种人与机器的交互方式。在这个思路中，“对话”不是目的，而是“操作机器”的手段。 简单来说，CommuneChatbot 是一个 : 个人开源项目 开发语言使用 PHP 7.2 可对接语音、即时通讯、公众号、智能音箱等平台，搭建对话机器人 最大特点是 多轮对话管理引擎</description>
+    </item>
     
     <item>
       <title>对话OS的前景与复杂多轮对话的关键功能点</title>
