@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 03 Jan 2020 15:46:12 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 09 Mar 2020 14:58:50 +0800</lastBuildDate>
     
 	<atom:link href="https://thirdgerb.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CommuneChatbot Demo 服务器搭建</title>
+      <link>https://thirdgerb.github.io/posts/2020-03/server-setup/</link>
+      <pubDate>Mon, 09 Mar 2020 14:58:50 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2020-03/server-setup/</guid>
+      <description>CommuneChatbot 的官网服务器备案没通过, 再放下去要罚款. 只好重新买一个香港的服务器, 重新建站. 整个流程特别长, 真是麻烦死了. 之前的流程已经忘光光了, 这次长记性先开一个文档来记录. 服务器购买 略. 初始化 useradd 创建用户 passwd 设置密码 /etc/sudoers 设置新用户管理员权限 .bashrc 修改一下界面, 界面不习惯就活不下去 /etc/vimrc 修改一下 vim 的界面 ssh 修改 创建 ~/.ssh目录, 并确保目录权限正确. 上传用户私钥到 ~/.ssh/authorized_keys. 修改 /etc/ssh/sshd_config : # 允许公钥登录 PubkeyAuthentication yes # 允许登录客户端保活 ClientAliveInterval 60 ClientAliveCountMax 3 #</description>
+    </item>
     
     <item>
       <title>对话机器人框架 CommuneChatbot 发布 v0.1.0版</title>
