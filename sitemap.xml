@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://thirdgerb.github.io/posts/2020-03/west-world-s3-1-prepare/</loc>
+    <lastmod>2020-03-17T14:17:41+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://thirdgerb.github.io/posts/2020-03/server-setup/</loc>
     <lastmod>2020-03-09T14:58:50+08:00</lastmod>
   </url>
@@ -128,7 +133,7 @@
   
   <url>
     <loc>https://thirdgerb.github.io/posts/</loc>
-    <lastmod>2020-03-09T14:58:50+08:00</lastmod>
+    <lastmod>2020-03-17T14:17:41+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -181,6 +186,18 @@
   </url>
   
   <url>
+    <loc>https://thirdgerb.github.io/tags/%E5%BD%B1%E8%AF%84/</loc>
+    <lastmod>2020-03-17T14:17:41+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://thirdgerb.github.io/categories/%E5%BD%B1%E8%AF%84/</loc>
+    <lastmod>2020-03-17T14:17:41+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://thirdgerb.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     <lastmod>2017-04-06T22:58:59+08:00</lastmod>
     <priority>0</priority>
@@ -188,13 +205,25 @@
   
   <url>
     <loc>https://thirdgerb.github.io/</loc>
-    <lastmod>2020-03-09T14:58:50+08:00</lastmod>
+    <lastmod>2020-03-17T14:17:41+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://thirdgerb.github.io/categories/%E8%A1%8C%E4%B8%9A%E6%80%9D%E8%80%83/</loc>
     <lastmod>2019-03-21T17:17:32+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://thirdgerb.github.io/tags/%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C/</loc>
+    <lastmod>2020-03-17T14:17:41+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://thirdgerb.github.io/series/%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C%E5%BD%B1%E8%AF%84/</loc>
+    <lastmod>2020-03-17T14:17:41+08:00</lastmod>
     <priority>0</priority>
   </url>
   
