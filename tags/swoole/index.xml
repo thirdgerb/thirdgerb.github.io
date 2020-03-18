@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 20 Jul 2019 11:19:53 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2020 17:50:58 +0800</lastBuildDate>
     
 	<atom:link href="https://thirdgerb.github.io/tags/swoole/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Swoole 双工通讯服务端主动推送</title>
+      <link>https://thirdgerb.github.io/posts/2020-03/swoole-duplex-push/</link>
+      <pubDate>Wed, 18 Mar 2020 17:50:58 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2020-03/swoole-duplex-push/</guid>
+      <description>今天一直在探索，通过 Swoole 建立一个双工通讯后，怎么让服务端主动推送消息给用户。 简单来说，客户端与服务端建立了长连接后（TCP，WebSocket)，服务端会主动轮询每个客户端的收件箱。 如果发现有新消息，而长连接又存在，就通过长连接，主动推送给用户。 最后发现，用 Swoole 的子进程就可以解决这个问题。代码如下： &amp;lt;?php $serv = new Swoole\Server(&amp;quot;127.0.0.1&amp;quot;, 9501); $process = new Swoole\Process(function($process) use ($serv) { $redis = new Redis(); $redis-&amp;gt;connect(&#39;127.0.0.1&#39;,6379); while(true) { foreach($serv-&amp;gt;connections as $fd) { $message = $redis-&amp;gt;rPop(&amp;quot;test_$fd&amp;quot;); if (!empty($message) &amp;amp;&amp;amp; $serv-&amp;gt;exists($fd)) { $serv-&amp;gt;send($fd, &amp;quot;redis $fd: $message\n&amp;quot;); } } sleep(1); } }); $serv-&amp;gt;addProcess($process); //监听连接进入事件</description>
+    </item>
     
     <item>
       <title>在Swoole中使用双IoC容器实现无污染的依赖注入</title>
