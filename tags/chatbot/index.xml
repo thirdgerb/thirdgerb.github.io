@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chatbot on 烈风&#39;s Blog</title>
+    <link>https://thirdgerb.github.io/tags/chatbot/</link>
+    <description>Recent content in Chatbot on 烈风&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 11 Dec 2019 18:52:09 +0800</lastBuildDate>
+    
+	<atom:link href="https://thirdgerb.github.io/tags/chatbot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>对话式视频应用展望</title>
+      <link>https://thirdgerb.github.io/posts/2019-12/conversational-video-app/</link>
+      <pubDate>Wed, 11 Dec 2019 18:52:09 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2019-12/conversational-video-app/</guid>
+      <description>本文将讨论一种新应用，&amp;rdquo;对话式-视频-应用&amp;rdquo; (conversational-video-application, 后文简称 &amp;ldquo;CVA&amp;rdquo;) )的设想，文章将包含以下方面: 概述 核心思路 技术实现 商业化应用场景 治理隐患 1. 概述 &amp;ldquo;对话式-视频-应用&amp;rdquo; 是 &amp;ldquo;视频&amp;rdquo;，&amp;rdquo;对话系统&amp;rdquo; 两者的结合，核心是 &amp;ldquo;对话&amp;rdquo;。 这是基于现有的对话技术，设想的一种面向用户（2c）的，偏向社交的应用。 简</description>
+    </item>
+    
+    <item>
+      <title>对话OS的前景与复杂多轮对话的关键功能点</title>
+      <link>https://thirdgerb.github.io/posts/2019-08/multi-turn-conversation-bot-features/</link>
+      <pubDate>Mon, 19 Aug 2019 12:44:20 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2019-08/multi-turn-conversation-bot-features/</guid>
+      <description>本文作者基于个人兴趣开发了一个工程化的多轮对话机器人框架(CommuneChatbot). 这篇文章用来记录自己对多轮对话机器人问题的部分认识和思考. 由于见识有限, 仅供参考, 欢迎批评指教. 本文将讨论以下三个问题: 对话OS(主要基于语音的操作系统)是对话机器人的未来方向之一, 或将领衔下一轮的交互革命 复杂多轮对话问题是现阶段对话机器人短板, 关键在于定义哪些功能点 ( features ) 从对话OS角度看, 并非只有机器学习一</description>
+    </item>
+    
+    <item>
+      <title>对话机器人的关键功能点(一) : N阶多轮对话的分形结构</title>
+      <link>https://thirdgerb.github.io/posts/2019-07/conversation-features/</link>
+      <pubDate>Mon, 22 Jul 2019 21:08:32 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2019-07/conversation-features/</guid>
+      <description>多轮对话机器人已经广泛地应用在智能客服, 智能音箱等领域. 它在技术上应该可以大致分拆成四个部分: 对话平台 : 负责获取和输出信息 ( 文字, 语音 或其它多媒体 ) 语义理解 : 负责将用户信息解析成数据结构 对话管理 : 负责执行用户意图, 生成反馈信号 输出合成 : 将反馈信号合成为文字或语音给用户 每个领域都存在许多技术难点. 而本文着重讨论 &amp;ldquo;对话管理&amp;rdquo; 领域的 &amp;ldquo;复杂多轮对话&amp;rdquo;问题. 以</description>
+    </item>
+    
+  </channel>
+</rss>

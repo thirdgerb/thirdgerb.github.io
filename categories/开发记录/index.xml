@@ -31,6 +31,51 @@
     </item>
     
     <item>
+      <title>对话机器人框架 CommuneChatbot 发布 v0.1.0版</title>
+      <link>https://thirdgerb.github.io/posts/2020-01/communechatbot-v01/</link>
+      <pubDate>Fri, 03 Jan 2020 15:46:12 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2020-01/communechatbot-v01/</guid>
+      <description>开源对话机器人开发框架 CommuneChatbot https://github.com/thirdgerb/chatbot 发布 v0.1.0 版了。 1. 项目介绍 &amp;ldquo;Commune&amp;rdquo; 是 &amp;ldquo;亲切交谈&amp;rdquo; 的意思。CommuneChatbot 这个项目则是想通过 “对话” 的形式提供一种人与机器的交互方式。在这个思路中，“对话”不是目的，而是“操作机器”的手段。 简单来说，CommuneChatbot 是一个 : 个人开源项目 开发语言使用 PHP 7.2 可对接语音、即时通讯、公众号、智能音箱等平台，搭建对话机器人 最大特点是 多轮对话管理引擎</description>
+    </item>
+    
+    <item>
+      <title>对话OS的前景与复杂多轮对话的关键功能点</title>
+      <link>https://thirdgerb.github.io/posts/2019-08/multi-turn-conversation-bot-features/</link>
+      <pubDate>Mon, 19 Aug 2019 12:44:20 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2019-08/multi-turn-conversation-bot-features/</guid>
+      <description>本文作者基于个人兴趣开发了一个工程化的多轮对话机器人框架(CommuneChatbot). 这篇文章用来记录自己对多轮对话机器人问题的部分认识和思考. 由于见识有限, 仅供参考, 欢迎批评指教. 本文将讨论以下三个问题: 对话OS(主要基于语音的操作系统)是对话机器人的未来方向之一, 或将领衔下一轮的交互革命 复杂多轮对话问题是现阶段对话机器人短板, 关键在于定义哪些功能点 ( features ) 从对话OS角度看, 并非只有机器学习一</description>
+    </item>
+    
+    <item>
+      <title>对话机器人的关键功能点(一) : N阶多轮对话的分形结构</title>
+      <link>https://thirdgerb.github.io/posts/2019-07/conversation-features/</link>
+      <pubDate>Mon, 22 Jul 2019 21:08:32 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2019-07/conversation-features/</guid>
+      <description>多轮对话机器人已经广泛地应用在智能客服, 智能音箱等领域. 它在技术上应该可以大致分拆成四个部分: 对话平台 : 负责获取和输出信息 ( 文字, 语音 或其它多媒体 ) 语义理解 : 负责将用户信息解析成数据结构 对话管理 : 负责执行用户意图, 生成反馈信号 输出合成 : 将反馈信号合成为文字或语音给用户 每个领域都存在许多技术难点. 而本文着重讨论 &amp;ldquo;对话管理&amp;rdquo; 领域的 &amp;ldquo;复杂多轮对话&amp;rdquo;问题. 以</description>
+    </item>
+    
+    <item>
+      <title>在Swoole中使用双IoC容器实现无污染的依赖注入</title>
+      <link>https://thirdgerb.github.io/posts/2019-07/double-container-used-in-swoole/</link>
+      <pubDate>Sat, 20 Jul 2019 11:19:53 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2019-07/double-container-used-in-swoole/</guid>
+      <description>简介: 容器(container)技术(可以理解为全局的工厂方法), 已经是现代项目的标配. 基于容器, 可以进一步实现控制反转, 依赖注入. Laravel 的巨大成功就是构建在它非常强大的IoC容器 illuminate/container 基础上的. 而 PSR-11 定义了标准的 container , 让更多的 PHP 项目依赖容器实现依赖解耦, 面向接口编程. 另一方面, PHP 天生一个进程响应一次请求的模型, 已经不能完全适应开发的需要. 于是 Swoole, reactPHP, roadrunner 也越来越流行. 它们共同的特点是一个 php worker 进程在生命周期内要响应</description>
+    </item>
+    
+    <item>
+      <title>多轮对话机器人框架 commune/chatbot 项目的demo发布</title>
+      <link>https://thirdgerb.github.io/posts/2019-07/commune-chatbot-demo-release/</link>
+      <pubDate>Thu, 18 Jul 2019 13:33:23 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2019-07/commune-chatbot-demo-release/</guid>
+      <description>commune/chatbot 的第一个demo 终于发布了!. 本项目是一个基于 php 开发的多轮对话机器人框架, 作者是 thirdgerb@gmail.com 它能用工程结合配置的方式, 开发各种能完成复杂多轮对话机器人, 可用于即时通讯软件和语音平台. demo 地址: 请使用微信扫描二维码, 进入微信公众号可以测试: (强烈推荐用桌面版微信测试) 或者在微信内搜索公众号: CommuneChatbot 什么是对话机器人 对话机器人, 指用户可以通过文字或语音对话理解用户的意图, 执行各种任务并将信息反馈给用户的机器人. 常见的</description>
+    </item>
+    
+    <item>
       <title>搬迁服务器</title>
       <link>https://thirdgerb.github.io/posts/old/%E6%90%AC%E8%BF%81%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Thu, 06 Apr 2017 22:58:59 +0800</pubDate>
