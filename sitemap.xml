@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://thirdgerb.github.io/posts/2020-03/chatbot-multi-shell-structure/</loc>
+    <lastmod>2020-03-27T16:52:53+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://thirdgerb.github.io/posts/2020-03/west-world-s3-2-maeve/</loc>
     <lastmod>2020-03-23T23:44:22+08:00</lastmod>
   </url>
@@ -119,19 +124,19 @@
   
   <url>
     <loc>https://thirdgerb.github.io/tags/chatbot/</loc>
-    <lastmod>2019-12-11T18:52:09+08:00</lastmod>
+    <lastmod>2020-03-27T16:52:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://thirdgerb.github.io/tags/commune-chatbot/</loc>
-    <lastmod>2020-01-03T15:46:12+08:00</lastmod>
+    <loc>https://thirdgerb.github.io/tags/commune/</loc>
+    <lastmod>2020-03-27T16:52:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://thirdgerb.github.io/series/commune%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2020-01-03T15:46:12+08:00</lastmod>
+    <lastmod>2020-03-27T16:52:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -149,13 +154,13 @@
   
   <url>
     <loc>https://thirdgerb.github.io/posts/</loc>
-    <lastmod>2020-03-23T23:44:22+08:00</lastmod>
+    <lastmod>2020-03-27T16:52:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://thirdgerb.github.io/series/</loc>
-    <lastmod>2020-01-03T15:46:12+08:00</lastmod>
+    <lastmod>2020-03-27T16:52:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -167,7 +172,7 @@
   
   <url>
     <loc>https://thirdgerb.github.io/tags/</loc>
-    <lastmod>2019-12-11T18:52:09+08:00</lastmod>
+    <lastmod>2020-03-27T16:52:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -185,7 +190,7 @@
   
   <url>
     <loc>https://thirdgerb.github.io/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2020-03-18T17:50:58+08:00</lastmod>
+    <lastmod>2020-03-27T16:52:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -203,7 +208,7 @@
   
   <url>
     <loc>https://thirdgerb.github.io/</loc>
-    <lastmod>2020-03-23T23:44:22+08:00</lastmod>
+    <lastmod>2020-03-27T16:52:53+08:00</lastmod>
     <priority>0</priority>
   </url>
   

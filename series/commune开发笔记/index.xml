@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 03 Jan 2020 15:46:12 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 27 Mar 2020 16:52:53 +0800</lastBuildDate>
     
 	<atom:link href="https://thirdgerb.github.io/series/commune%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Commune v0.2 对话机器人的多端架构设想</title>
+      <link>https://thirdgerb.github.io/posts/2020-03/chatbot-multi-shell-structure/</link>
+      <pubDate>Fri, 27 Mar 2020 16:52:53 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2020-03/chatbot-multi-shell-structure/</guid>
+      <description>我现在把 CommuneChatbot 项目当成一个试验平台, 用来探索一些对话机器人的新思路. 目前正在开发 v0.2 版本. 相比 v0.1, 新版本几乎是重构一遍. 主要原因有两个: 试图实现多端机器人 试图实现可以在线热修改思维的动态机器人 本文着重谈谈前一个思路. 1. 什么是多端机器人? 举个例子, 我电脑浏览器打开了一个网页, 然后对着智能音箱说话, 网页内容随着我的命令而变化. 网页, 智能音箱是完全隔离的两个端, 但被同一个机器人管理着. 简单来说, 一个机器人可以同</description>
+    </item>
     
     <item>
       <title>对话机器人框架 CommuneChatbot 发布 v0.1.0版</title>
