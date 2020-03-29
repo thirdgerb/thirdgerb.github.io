@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 27 Mar 2020 16:52:53 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2020 15:16:03 +0800</lastBuildDate>
     
 	<atom:link href="https://thirdgerb.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>《饥饿站台》评析：&#34;显而易见&#34;的本质是视若无睹</title>
+      <link>https://thirdgerb.github.io/posts/2020-03/the-platform-review/</link>
+      <pubDate>Sun, 29 Mar 2020 15:16:03 +0800</pubDate>
+      
+      <guid>https://thirdgerb.github.io/posts/2020-03/the-platform-review/</guid>
+      <description>&amp;ldquo;显而易见&amp;rdquo;的，&amp;rdquo;显而易见&amp;rdquo;这个词其实是《饥饿站台》这部电影的灵魂。 越是 &amp;ldquo;显而易见&amp;rdquo;（obvious），就越容易 &amp;ldquo;视若无睹&amp;rdquo;（ignorable）， 等于人们宣布放弃了细节、放弃了追问、放弃了思考、放弃了质疑，而接受一个眼前的现存秩序。 魔术师总是用 &amp;ldquo;显而易见&amp;rdquo; 来吸引观众，然后利用观</description>
+    </item>
     
     <item>
       <title>Commune v0.2 对话机器人的多端架构设想</title>
